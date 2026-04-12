@@ -23,6 +23,8 @@ gh workflow run collect.yml
 Requires a Fine-grained PAT with **Administration: Read-only** permission, stored as `GH_INSIGHTS_PAT` in repository secrets.
 
 <!-- CHARTS:START -->
+## Insights
+
 > Last updated: 2026-04-12T05:45:22Z
 
 ### Views by Repository
@@ -54,6 +56,17 @@ xychart-beta horizontal
     y-axis "Clones"
     bar [437, 260, 257, 250, 187, 134, 93, 84]
 ```
+
+### Repositories
+
+- [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp)
+- [gws-cli](https://github.com/shigechika/gws-cli)
+- [homebrew-tap](https://github.com/shigechika/homebrew-tap)
+- [junos-mcp](https://github.com/shigechika/junos-mcp)
+- [junos-ops](https://github.com/shigechika/junos-ops)
+- [keycloak-mcp](https://github.com/shigechika/keycloak-mcp)
+- [macos-ddns6](https://github.com/shigechika/macos-ddns6)
+- [mcp-stdio](https://github.com/shigechika/mcp-stdio)
 <!-- CHARTS:END -->
 
 ## Roadmap

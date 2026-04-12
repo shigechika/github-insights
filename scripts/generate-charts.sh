@@ -60,6 +60,8 @@ clones_bar=$(jq -r '
 # --- Build charts markdown ---
 {
   echo "<!-- CHARTS:START -->"
+  echo "## Insights"
+  echo ""
   echo "> Last updated: ${updated_at}"
   echo ""
   echo "### Views by Repository"
@@ -81,6 +83,18 @@ clones_bar=$(jq -r '
     echo -e "$clones_bar"
     echo '```'
   fi
+  echo ""
+  echo "### Repositories"
+  echo ""
+  # Collect all repos that appear in views or clones charts (top 8 each), deduplicate
+  jq -r '
+    ([.views | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
+      | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo),
+    ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
+      | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo)
+  ' "$DATA_FILE" | sort -u | while read -r repo; do
+    echo "- [${repo}](https://github.com/shigechika/${repo})"
+  done
   echo "<!-- CHARTS:END -->"
 } > charts.md
 
