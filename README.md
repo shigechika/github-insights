@@ -23,7 +23,7 @@ gh workflow run collect.yml
 Requires a Fine-grained PAT with **Administration: Read-only** permission, stored as `GH_INSIGHTS_PAT` in repository secrets.
 
 <!-- CHARTS:START -->
-> Last updated: 2026-04-12T05:39:03Z
+> Last updated: 2026-04-12T05:45:22Z
 
 ### Views by Repository
 
