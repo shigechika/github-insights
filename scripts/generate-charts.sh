@@ -19,7 +19,7 @@ views_bar=$(jq -r '
   | sort_by(-.total)
   | [.[] | select(.total > 0)]
   | .[0:8]
-  | "xychart-beta\n    title \"Views by Repository (14 days)\"\n    x-axis ["
+  | "xychart-beta horizontal\n    title \"Views by Repository (14 days)\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
@@ -49,7 +49,7 @@ clones_bar=$(jq -r '
   | [.[] | select(.total > 0)]
   | .[0:8]
   | if length == 0 then "NONE" else
-    "xychart-beta\n    title \"Clones by Repository (14 days)\"\n    x-axis ["
+    "xychart-beta horizontal\n    title \"Clones by Repository (14 days)\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Clones\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
