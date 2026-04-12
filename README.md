@@ -73,3 +73,7 @@ xychart-beta horizontal
 
 - [x] Phase 1: Daily traffic collection via GitHub Actions
 - [ ] Phase 2: GitHub Pages + Chart.js stacked area charts
+
+## License
+
+[MIT](LICENSE)
