@@ -13,12 +13,12 @@ fi
 
 updated_at=$(jq -r '.updated_at' "$DATA_FILE")
 
-# --- Chart 1: Top repositories by views (bar chart) ---
+# --- Chart 1: Top repositories by views (bar chart, top 8) ---
 views_bar=$(jq -r '
   [.views | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
   | sort_by(-.total)
   | [.[] | select(.total > 0)]
-  | .[0:15]
+  | .[0:8]
   | "xychart-beta\n    title \"Views by Repository (14 days)\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
@@ -26,25 +26,28 @@ views_bar=$(jq -r '
     + "]"
 ' "$DATA_FILE")
 
-# --- Chart 2: Daily views aggregate (bar chart) ---
+# --- Chart 2: Daily views aggregate (bar chart, trim leading zeros) ---
 daily_views=$(jq -r '
   [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
   | group_by(.date)
   | sort_by(.[0].date)
   | map({date: .[0].date, total: ([.[].count] | add)})
+  | . as $all
+  | (first(range(length) | select($all[.].total > 0)) // 0) as $start
+  | .[$start:]
   | "xychart-beta\n    title \"Daily Views (All Repositories)\"\n    x-axis ["
-    + ([.[].date | split("T")[0] | split("-")[1:] | join("-")] | map("\"" + . + "\"") | join(", "))
+    + ([.[].date | split("T")[0] | .[5:]] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
     + "]"
 ' "$DATA_FILE")
 
-# --- Chart 3: Top repositories by clones (bar chart) ---
+# --- Chart 3: Top repositories by clones (bar chart, top 8) ---
 clones_bar=$(jq -r '
   [.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
   | sort_by(-.total)
   | [.[] | select(.total > 0)]
-  | .[0:15]
+  | .[0:8]
   | if length == 0 then "NONE" else
     "xychart-beta\n    title \"Clones by Repository (14 days)\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
