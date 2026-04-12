@@ -13,13 +13,21 @@ fi
 
 updated_at=$(jq -r '.updated_at' "$DATA_FILE")
 
+# Calculate data range in days
+views_days=$(jq -r '
+  [.views | to_entries[].value | keys[]] | unique | sort | if length > 1 then
+    ((.[length-1] | split("T")[0] | strptime("%Y-%m-%d") | mktime) -
+     (.[0]        | split("T")[0] | strptime("%Y-%m-%d") | mktime)) / 86400 | ceil
+  else 0 end
+' "$DATA_FILE")
+
 # --- Chart 1: Top repositories by views (bar chart, top 8) ---
-views_bar=$(jq -r '
+views_bar=$(jq -r --arg days "${views_days} days" '
   [.views | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
   | sort_by(-.total)
   | [.[] | select(.total > 0)]
   | .[0:8]
-  | "xychart-beta horizontal\n    title \"Views by Repository (14 days)\"\n    x-axis ["
+  | "xychart-beta horizontal\n    title \"Views by Repository (\($days))\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
@@ -43,13 +51,13 @@ daily_views=$(jq -r '
 ' "$DATA_FILE")
 
 # --- Chart 3: Top repositories by clones (bar chart, top 8) ---
-clones_bar=$(jq -r '
+clones_bar=$(jq -r --arg days "${views_days} days" '
   [.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
   | sort_by(-.total)
   | [.[] | select(.total > 0)]
   | .[0:8]
   | if length == 0 then "NONE" else
-    "xychart-beta horizontal\n    title \"Clones by Repository (14 days)\"\n    x-axis ["
+    "xychart-beta horizontal\n    title \"Clones by Repository (\($days))\"\n    x-axis ["
     + ([.[].repo] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Clones\"\n    bar ["
     + ([.[].total | tostring] | join(", "))

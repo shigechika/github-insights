@@ -31,7 +31,7 @@ Requires a Fine-grained PAT with **Administration: Read-only** permission, store
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (14 days)"
+    title "Views by Repository (27 days)"
     x-axis ["mcp-stdio", "junos-mcp", "aruba-central-mcp", "keycloak-mcp", "homebrew-tap", "gws-cli", "junos-ops", "macos-ddns6"]
     y-axis "Views"
     bar [202, 90, 86, 85, 82, 73, 64, 30]
@@ -51,7 +51,7 @@ xychart-beta horizontal
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (14 days)"
+    title "Clones by Repository (27 days)"
     x-axis ["mcp-stdio", "aruba-central-mcp", "junos-mcp", "homebrew-tap", "keycloak-mcp", "gws-cli", "macos-ddns6", "junos-ops"]
     y-axis "Clones"
     bar [437, 260, 257, 250, 187, 134, 93, 84]
