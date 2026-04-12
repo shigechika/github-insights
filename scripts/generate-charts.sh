@@ -3,6 +3,7 @@ set -euo pipefail
 
 # Generate mermaid charts from traffic.json and update README.md
 
+OWNER="${GITHUB_REPOSITORY_OWNER:-shigechika}"
 DATA_FILE="data/traffic.json"
 README="README.md"
 
@@ -101,7 +102,7 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
     ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
       | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo)
   ' "$DATA_FILE" | sort -u | while read -r repo; do
-    echo "- [${repo}](https://github.com/shigechika/${repo})"
+    echo "- [${repo}](https://github.com/${OWNER}/${repo})"
   done
   echo "<!-- CHARTS:END -->"
 } > charts.md

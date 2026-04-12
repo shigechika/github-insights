@@ -5,7 +5,7 @@ set -euo pipefail
 # and merge into data/traffic.json, preserving historical data beyond
 # GitHub's 14-day retention window.
 
-OWNER="shigechika"
+OWNER="${GITHUB_REPOSITORY_OWNER:-shigechika}"
 DATA_FILE="data/traffic.json"
 
 # Initialize data file if missing

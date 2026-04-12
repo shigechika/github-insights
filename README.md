@@ -76,4 +76,4 @@ xychart-beta horizontal
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) — Originally created by [shigechika/github-insights](https://github.com/shigechika/github-insights)
