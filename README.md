@@ -38,7 +38,7 @@ xychart-beta horizontal
 ### Daily Views
 
 ```mermaid
-xychart-beta
+xychart-beta horizontal
     title "Daily Views (All Repositories)"
     x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12"]
     y-axis "Views"

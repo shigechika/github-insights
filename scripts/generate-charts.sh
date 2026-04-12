@@ -35,7 +35,7 @@ daily_views=$(jq -r '
   | . as $all
   | (first(range(length) | select($all[.].total > 0)) // 0) as $start
   | .[$start:]
-  | "xychart-beta\n    title \"Daily Views (All Repositories)\"\n    x-axis ["
+  | "xychart-beta horizontal\n    title \"Daily Views (All Repositories)\"\n    x-axis ["
     + ([.[].date | split("T")[0] | .[5:]] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
