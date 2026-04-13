@@ -2,8 +2,10 @@ name: Collect Traffic Data
 
 on:
   schedule:
-    # Run daily at 00:00 UTC (09:00 JST)
-    - cron: "0 0 * * *"
+    # Run 3x daily at JST 10:37, 18:37, 02:37 (prime-minute to avoid congested slots)
+    - cron: "37 1 * * *"
+    - cron: "37 9 * * *"
+    - cron: "37 17 * * *"
   workflow_dispatch: # Allow manual trigger
 
 permissions:
