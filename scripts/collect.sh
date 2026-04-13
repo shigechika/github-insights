@@ -13,6 +13,22 @@ if [[ ! -f "$DATA_FILE" ]]; then
   echo '{"updated_at":"","views":{},"clones":{}}' > "$DATA_FILE"
 fi
 
+# Reconcile repository renames.
+# GitHub API 301-redirects old names to new ones; the returned .name is the
+# canonical current name. Merge any renamed repo's history into the new key.
+existing_repos=$(jq -r '[(.views // {} | keys[]), (.clones // {} | keys[])] | unique[]' "$DATA_FILE")
+for old_name in $existing_repos; do
+  new_name=$(gh api "repos/${OWNER}/${old_name}" --jq '.name' 2>/dev/null || echo "")
+  if [[ -n "$new_name" && "$new_name" != "$old_name" ]]; then
+    echo "Detected rename: ${old_name} -> ${new_name}"
+    jq --arg old "$old_name" --arg new "$new_name" '
+        .views[$new]  = ((.views[$new]  // {}) * (.views[$old]  // {}))
+      | .clones[$new] = ((.clones[$new] // {}) * (.clones[$old] // {}))
+      | del(.views[$old], .clones[$old])
+    ' "$DATA_FILE" > tmp.json && mv tmp.json "$DATA_FILE"
+  fi
+done
+
 # List all public repositories
 repos=$(gh api "users/${OWNER}/repos?type=public&per_page=100" --jq '.[].name' | sort)
 
