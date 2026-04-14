@@ -101,17 +101,17 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
       | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo),
     ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
       | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo)
-  ' "$DATA_FILE" | sort -u | while read -r repo; do
-    if ! description=$(gh api "repos/${OWNER}/${repo}" --jq '.description // ""'); then
-      echo "ERROR: failed to fetch description for ${OWNER}/${repo}" >&2
-      exit 1
-    fi
-    if [[ -n "$description" ]]; then
-      echo "- [${repo}](https://github.com/${OWNER}/${repo}) — ${description}"
-    else
-      echo "- [${repo}](https://github.com/${OWNER}/${repo})"
-    fi
-  done
+  ' "$DATA_FILE" | sort -u | {
+    echo "| Repository | Description |"
+    echo "| --- | --- |"
+    while read -r repo; do
+      if ! description=$(gh api "repos/${OWNER}/${repo}" --jq '.description // ""'); then
+        echo "ERROR: failed to fetch description for ${OWNER}/${repo}" >&2
+        exit 1
+      fi
+      echo "| [${repo}](https://github.com/${OWNER}/${repo}) | ${description} |"
+    done
+  }
   echo "<!-- CHARTS:END -->"
 } > charts.md
 
