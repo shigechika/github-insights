@@ -5,7 +5,7 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-14T05:37:48Z
+> Last updated: 2026-04-14T07:05:46Z
 
 ### Views by Repository
 
@@ -39,15 +39,15 @@ xychart-beta horizontal
 
 ### Repositories
 
-- [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp)
-- [github-insights](https://github.com/shigechika/github-insights)
-- [gws-mcp](https://github.com/shigechika/gws-mcp)
-- [homebrew-tap](https://github.com/shigechika/homebrew-tap)
-- [junos-mcp](https://github.com/shigechika/junos-mcp)
-- [junos-ops](https://github.com/shigechika/junos-ops)
-- [keycloak-mcp](https://github.com/shigechika/keycloak-mcp)
-- [macos-ddns6](https://github.com/shigechika/macos-ddns6)
-- [mcp-stdio](https://github.com/shigechika/mcp-stdio)
+- [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp) — MCP server for Aruba Central: expose AP, switch, and client status to AI assistants
+- [github-insights](https://github.com/shigechika/github-insights) — GitHub Traffic insights dashboard for shigechika repositories
+- [gws-mcp](https://github.com/shigechika/gws-mcp) — MCP fork from Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.
+- [homebrew-tap](https://github.com/shigechika/homebrew-tap) — Homebrew tap for junos-ops and speedtest-z
+- [junos-mcp](https://github.com/shigechika/junos-mcp) — MCP server for Juniper/JUNOS — exposes junos-ops (upgrade, rollback, config push with commit confirmed, show, RSI) to AI assistants with safe dry-run defaults
+- [junos-ops](https://github.com/shigechika/junos-ops) — Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection
+- [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) — MCP server for KeyCloak Admin REST API via Service Account (Client Credentials Grant)
+- [macos-ddns6](https://github.com/shigechika/macos-ddns6) — Dynamic DNS updater for macOS — detects IPv6 SLAAC autoconf secured addresses and updates DNS records
+- [mcp-stdio](https://github.com/shigechika/mcp-stdio) — Stdio-to-HTTP gateway — connects MCP clients to remote HTTP MCP servers
 <!-- CHARTS:END -->
 
 ## Overview
