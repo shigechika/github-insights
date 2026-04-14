@@ -5,16 +5,16 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-13T20:33:12Z
+> Last updated: 2026-04-14T05:37:48Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (27 days)"
-    x-axis ["mcp-stdio", "aruba-central-mcp", "keycloak-mcp", "junos-mcp", "homebrew-tap", "gws-cli", "gws-mcp", "junos-ops"]
+    title "Views by Repository (28 days)"
+    x-axis ["mcp-stdio", "aruba-central-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "homebrew-tap", "gws-mcp", "junos-ops"]
     y-axis "Views"
-    bar [287, 106, 95, 91, 82, 75, 71, 70]
+    bar [287, 115, 111, 95, 91, 82, 75, 70]
 ```
 
 ### Daily Views
@@ -22,31 +22,31 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Daily Views (All Repositories)"
-    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12"]
+    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13"]
     y-axis "Views"
-    bar [19, 7, 9, 45, 45, 44, 12, 172, 137, 79, 24, 72, 90, 73, 40, 141]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 70]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (27 days)"
-    x-axis ["mcp-stdio", "aruba-central-mcp", "homebrew-tap", "junos-mcp", "github-insights", "keycloak-mcp", "gws-cli", "gws-mcp"]
+    title "Clones by Repository (28 days)"
+    x-axis ["mcp-stdio", "aruba-central-mcp", "homebrew-tap", "github-insights", "junos-mcp", "keycloak-mcp", "gws-mcp", "macos-ddns6"]
     y-axis "Clones"
-    bar [820, 367, 359, 260, 223, 192, 137, 119]
+    bar [820, 408, 359, 276, 260, 192, 137, 93]
 ```
 
 ### Repositories
 
 - [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp)
 - [github-insights](https://github.com/shigechika/github-insights)
-- [gws-cli](https://github.com/shigechika/gws-cli)
 - [gws-mcp](https://github.com/shigechika/gws-mcp)
 - [homebrew-tap](https://github.com/shigechika/homebrew-tap)
 - [junos-mcp](https://github.com/shigechika/junos-mcp)
 - [junos-ops](https://github.com/shigechika/junos-ops)
 - [keycloak-mcp](https://github.com/shigechika/keycloak-mcp)
+- [macos-ddns6](https://github.com/shigechika/macos-ddns6)
 - [mcp-stdio](https://github.com/shigechika/mcp-stdio)
 <!-- CHARTS:END -->
 
