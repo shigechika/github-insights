@@ -21,6 +21,8 @@ jobs:
         run: bash scripts/collect.sh
 
       - name: Generate charts
+        env:
+          GH_TOKEN: ${{ secrets.GH_INSIGHTS_PAT }}
         run: bash scripts/generate-charts.sh
 
       - name: Commit and push

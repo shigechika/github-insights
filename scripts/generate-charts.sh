@@ -102,7 +102,10 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
     ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
       | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo)
   ' "$DATA_FILE" | sort -u | while read -r repo; do
-    description=$(gh api "repos/${OWNER}/${repo}" --jq '.description // ""' 2>/dev/null || echo "")
+    if ! description=$(gh api "repos/${OWNER}/${repo}" --jq '.description // ""'); then
+      echo "ERROR: failed to fetch description for ${OWNER}/${repo}" >&2
+      exit 1
+    fi
     if [[ -n "$description" ]]; then
       echo "- [${repo}](https://github.com/${OWNER}/${repo}) — ${description}"
     else
