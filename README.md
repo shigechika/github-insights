@@ -5,16 +5,16 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-15T05:38:39Z
+> Last updated: 2026-04-15T12:42:11Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
     title "Views by Repository (29 days)"
-    x-axis ["mcp-stdio", "aruba-central-mcp", "github-insights", "keycloak-mcp", "gws-mcp", "junos-mcp", "homebrew-tap", "junos-ops"]
+    x-axis ["mcp-stdio", "github-insights", "aruba-central-mcp", "gws-mcp", "keycloak-mcp", "junos-mcp", "junos-ops", "homebrew-tap"]
     y-axis "Views"
-    bar [299, 115, 111, 106, 100, 99, 82, 76]
+    bar [312, 150, 117, 111, 110, 107, 95, 84]
 ```
 
 ### Daily Views
@@ -24,7 +24,7 @@ xychart-beta horizontal
     title "Daily Views (All Repositories)"
     x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 0]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99]
 ```
 
 ### Clones by Repository
@@ -32,9 +32,9 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Clones by Repository (29 days)"
-    x-axis ["mcp-stdio", "aruba-central-mcp", "homebrew-tap", "junos-mcp", "github-insights", "keycloak-mcp", "gws-mcp", "macos-ddns6"]
+    x-axis ["mcp-stdio", "homebrew-tap", "aruba-central-mcp", "junos-mcp", "github-insights", "keycloak-mcp", "junos-ops", "gws-mcp"]
     y-axis "Clones"
-    bar [896, 408, 370, 327, 276, 246, 227, 95]
+    bar [961, 459, 425, 387, 364, 300, 298, 294]
 ```
 
 ### Repositories
@@ -48,7 +48,6 @@ xychart-beta horizontal
 | [junos-mcp](https://github.com/shigechika/junos-mcp) | MCP server for Juniper/JUNOS — show, upgrade with rollback, config push (commit confirmed) with safe dry-run defaults, RSI/SCF collection |
 | [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
-| [macos-ddns6](https://github.com/shigechika/macos-ddns6) | Dynamic DNS updater for macOS — detects IPv6 SLAAC autoconf secured addresses and updates DNS records |
 | [mcp-stdio](https://github.com/shigechika/mcp-stdio) | Stdio-to-HTTP gateway — connects MCP clients to remote HTTP MCP servers |
 <!-- CHARTS:END -->
 
