@@ -82,8 +82,7 @@ Requires a Fine-grained PAT with **Administration: Read-only** permission, store
 
 ## Roadmap
 
-- [x] Phase 1: Daily traffic collection via GitHub Actions
-- [x] Phase 2: GitHub Pages + Chart.js stacked area charts
+- [ ] [Phase 3: Make this a template repository](https://github.com/shigechika/github-insights/issues/1)
 
 ## License
 
