@@ -2,6 +2,8 @@
 
 GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika) repositories.
 
+**Live dashboard**: https://shigechika.github.io/github-insights/
+
 <!-- CHARTS:START -->
 ## Insights
 
@@ -57,6 +59,7 @@ GitHub only retains traffic data (views & clones) for **14 days**. This project 
 
 ## Features
 
+- **Interactive dashboard**: Stacked area charts (views & clones) on GitHub Pages with 30d / 90d / 1y / All range toggles
 - **Cross-repository aggregation**: Unified stats across all public repositories of the owner
 - **Rename-aware**: Detects repository renames via GitHub API's 301 redirect and merges history under the new name automatically
 - **Long-term retention**: Preserves traffic data beyond GitHub's 14-day window
@@ -80,7 +83,7 @@ Requires a Fine-grained PAT with **Administration: Read-only** permission, store
 ## Roadmap
 
 - [x] Phase 1: Daily traffic collection via GitHub Actions
-- [ ] Phase 2: GitHub Pages + Chart.js stacked area charts
+- [x] Phase 2: GitHub Pages + Chart.js stacked area charts
 
 ## License
 

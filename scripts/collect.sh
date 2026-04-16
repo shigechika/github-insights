@@ -61,8 +61,13 @@ for repo in $repos; do
   echo "$existing" > "$DATA_FILE"
 done
 
-# Update timestamp
-jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '.updated_at = $ts' "$DATA_FILE" > tmp.json \
+# Update timestamp and owner
+jq --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg owner "$OWNER" \
+  '.updated_at = $ts | .owner = $owner' "$DATA_FILE" > tmp.json \
   && mv tmp.json "$DATA_FILE"
+
+# Publish data to docs/ for GitHub Pages
+mkdir -p docs
+cp "$DATA_FILE" docs/traffic.json
 
 echo "Done. Data saved to ${DATA_FILE}"

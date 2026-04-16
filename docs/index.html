@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>github-insights</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #656d76;
+    --border: #d0d7de;
+    --card: #f6f8fa;
+    --link: #0969da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #8d96a0;
+      --border: #30363d;
+      --card: #161b22;
+      --link: #58a6ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.5;
+  }
+  header { max-width: 1100px; margin: 0 auto 1.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+  .meta { color: var(--muted); font-size: .875rem; }
+  .meta a { color: var(--link); text-decoration: none; }
+  .meta a:hover { text-decoration: underline; }
+  main { max-width: 1100px; margin: 0 auto; display: grid; gap: 1.5rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .card h2 { margin: 0 0 .75rem; font-size: 1.1rem; }
+  .chart-wrap { position: relative; height: 380px; }
+  .controls {
+    display: flex; gap: .5rem; flex-wrap: wrap;
+    margin-bottom: .75rem;
+  }
+  button {
+    background: transparent;
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .25rem .75rem;
+    font-size: .85rem;
+    cursor: pointer;
+  }
+  button.active {
+    background: var(--link);
+    color: #fff;
+    border-color: var(--link);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th, td { text-align: left; padding: .4rem .5rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 500; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  footer { max-width: 1100px; margin: 2rem auto 0; color: var(--muted); font-size: .8rem; text-align: center; }
+  footer a { color: var(--link); text-decoration: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>github-insights</h1>
+  <div class="meta">
+    GitHub traffic dashboard for
+    <a id="owner-link" href="#">shigechika</a>'s repositories.
+    Last updated: <span id="updated-at">—</span>.
+    <a href="https://github.com/shigechika/github-insights">Source</a>
+  </div>
+</header>
+<main>
+  <section class="card">
+    <h2>Daily Views (stacked by repository)</h2>
+    <div class="controls" id="views-range"></div>
+    <div class="chart-wrap"><canvas id="viewsChart"></canvas></div>
+  </section>
+  <section class="card">
+    <h2>Daily Clones (stacked by repository)</h2>
+    <div class="controls" id="clones-range"></div>
+    <div class="chart-wrap"><canvas id="clonesChart"></canvas></div>
+  </section>
+  <section class="card">
+    <h2>Repository totals</h2>
+    <table id="totals-table">
+      <thead>
+        <tr><th>Repository</th><th class="num">Views</th><th class="num">Clones</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+<footer>
+  Built with <a href="https://www.chartjs.org/">Chart.js</a> &middot;
+  Data: <a href="./traffic.json">traffic.json</a>
+</footer>
+<script>
+const TOP_N = 8;
+const RANGES = [
+  { label: "30d",  days: 30  },
+  { label: "90d",  days: 90  },
+  { label: "1y",   days: 365 },
+  { label: "All",  days: null },
+];
+const PALETTE = [
+  "#0969da", "#1a7f37", "#bf3989", "#bc4c00", "#8250df",
+  "#cf222e", "#9a6700", "#0a7c8c", "#6e7781",
+];
+
+function allDates(byRepo) {
+  const set = new Set();
+  for (const repo of Object.keys(byRepo)) {
+    for (const ts of Object.keys(byRepo[repo])) {
+      set.add(ts.slice(0, 10));
+    }
+  }
+  return [...set].sort();
+}
+
+function topRepos(byRepo, n) {
+  const totals = Object.entries(byRepo).map(([repo, days]) => {
+    const total = Object.values(days).reduce((s, d) => s + (d.count || 0), 0);
+    return { repo, total };
+  });
+  totals.sort((a, b) => b.total - a.total);
+  const positives = totals.filter(t => t.total > 0);
+  return positives.slice(0, n).map(t => t.repo);
+}
+
+function buildDatasets(byRepo, dates, top) {
+  const topSet = new Set(top);
+  const datasets = top.map((repo, i) => ({
+    label: repo,
+    data: dates.map(d => {
+      const ts = d + "T00:00:00Z";
+      return byRepo[repo]?.[ts]?.count || 0;
+    }),
+    backgroundColor: PALETTE[i % PALETTE.length] + "cc",
+    borderColor: PALETTE[i % PALETTE.length],
+    borderWidth: 1,
+    fill: true,
+    tension: 0.2,
+    pointRadius: 0,
+  }));
+  const others = Object.keys(byRepo).filter(r => !topSet.has(r));
+  if (others.length > 0) {
+    datasets.push({
+      label: `Other (${others.length})`,
+      data: dates.map(d => {
+        const ts = d + "T00:00:00Z";
+        return others.reduce((s, r) => s + (byRepo[r]?.[ts]?.count || 0), 0);
+      }),
+      backgroundColor: PALETTE[PALETTE.length - 1] + "99",
+      borderColor: PALETTE[PALETTE.length - 1],
+      borderWidth: 1,
+      fill: true,
+      tension: 0.2,
+      pointRadius: 0,
+    });
+  }
+  return datasets;
+}
+
+function makeChart(canvasId, byRepo) {
+  const dates = allDates(byRepo);
+  const top = topRepos(byRepo, TOP_N);
+  const datasets = buildDatasets(byRepo, dates, top);
+  const ctx = document.getElementById(canvasId).getContext("2d");
+  return new Chart(ctx, {
+    type: "line",
+    data: { labels: dates, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: "index", intersect: false },
+      scales: {
+        x: { type: "time", time: { unit: "day", tooltipFormat: "yyyy-MM-dd" } },
+        y: { stacked: true, beginAtZero: true },
+      },
+      plugins: {
+        legend: { position: "bottom", labels: { boxWidth: 12 } },
+        tooltip: { itemSort: (a, b) => b.parsed.y - a.parsed.y },
+      },
+      elements: { line: { fill: "stack" } },
+    },
+  });
+}
+
+function applyRange(chart, byRepo, days) {
+  let dates = allDates(byRepo);
+  if (days != null) {
+    const cutoff = new Date();
+    cutoff.setUTCDate(cutoff.getUTCDate() - days);
+    const cutoffStr = cutoff.toISOString().slice(0, 10);
+    dates = dates.filter(d => d >= cutoffStr);
+  }
+  const top = topRepos(filterByDates(byRepo, dates), TOP_N);
+  chart.data.labels = dates;
+  chart.data.datasets = buildDatasets(byRepo, dates, top);
+  chart.update();
+}
+
+function filterByDates(byRepo, dates) {
+  const allow = new Set(dates.map(d => d + "T00:00:00Z"));
+  const out = {};
+  for (const [repo, days] of Object.entries(byRepo)) {
+    const filtered = {};
+    for (const [ts, v] of Object.entries(days)) {
+      if (allow.has(ts)) filtered[ts] = v;
+    }
+    if (Object.keys(filtered).length > 0) out[repo] = filtered;
+  }
+  return out;
+}
+
+function buildRangeButtons(containerId, chart, byRepo, defaultDays) {
+  const container = document.getElementById(containerId);
+  RANGES.forEach(r => {
+    const btn = document.createElement("button");
+    btn.textContent = r.label;
+    if (r.days === defaultDays) btn.classList.add("active");
+    btn.addEventListener("click", () => {
+      container.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      applyRange(chart, byRepo, r.days);
+    });
+    container.appendChild(btn);
+  });
+}
+
+function renderTotals(views, clones) {
+  const repos = new Set([...Object.keys(views), ...Object.keys(clones)]);
+  const sumDays = days => Object.values(days || {}).reduce((s, d) => s + (d.count || 0), 0);
+  const rows = [...repos].map(r => ({
+    repo: r,
+    views: sumDays(views[r]),
+    clones: sumDays(clones[r]),
+  }));
+  rows.sort((a, b) => (b.views + b.clones) - (a.views + a.clones));
+  const tbody = document.querySelector("#totals-table tbody");
+  rows.forEach(r => {
+    const tr = document.createElement("tr");
+    const owner = document.getElementById("owner-link").textContent;
+    tr.innerHTML = `<td><a href="https://github.com/${owner}/${r.repo}">${r.repo}</a></td>`
+      + `<td class="num">${r.views.toLocaleString()}</td>`
+      + `<td class="num">${r.clones.toLocaleString()}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+async function main() {
+  const res = await fetch("./traffic.json", { cache: "no-store" });
+  const data = await res.json();
+  document.getElementById("updated-at").textContent = data.updated_at || "—";
+  const owner = data.owner || "shigechika";
+  const ownerLink = document.getElementById("owner-link");
+  ownerLink.textContent = owner;
+  ownerLink.href = `https://github.com/${owner}`;
+
+  const defaultDays = 90;
+  const viewsChart = makeChart("viewsChart", data.views || {});
+  const clonesChart = makeChart("clonesChart", data.clones || {});
+  applyRange(viewsChart, data.views || {}, defaultDays);
+  applyRange(clonesChart, data.clones || {}, defaultDays);
+  buildRangeButtons("views-range", viewsChart, data.views || {}, defaultDays);
+  buildRangeButtons("clones-range", clonesChart, data.clones || {}, defaultDays);
+
+  renderTotals(data.views || {}, data.clones || {});
+}
+
+main().catch(err => {
+  document.querySelector("main").innerHTML =
+    `<div class="card"><h2>Error</h2><pre>${err}</pre></div>`;
+});
+</script>
+</body>
+</html>
