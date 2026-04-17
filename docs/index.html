@@ -108,7 +108,7 @@
 </main>
 <footer>
   Built with <a href="https://www.chartjs.org/">Chart.js</a> &middot;
-  Data: <a href="./traffic.json">traffic.json</a>
+  Data: <a href="https://github.com/shigechika/github-insights/blob/main/data/traffic.json">data/traffic.json</a>
 </footer>
 <script>
 const TOP_N = 8;
@@ -264,8 +264,20 @@ function renderTotals(views, clones) {
   });
 }
 
+function dataUrl() {
+  // On GitHub Pages, derive owner/repo from the URL so this works for
+  // any fork without code changes (Phase 3 template-repo friendly).
+  const host = window.location.hostname;
+  const seg = window.location.pathname.split("/").filter(Boolean);
+  const m = host.match(/^([^.]+)\.github\.io$/);
+  if (m && seg.length > 0) {
+    return `https://raw.githubusercontent.com/${m[1]}/${seg[0]}/main/data/traffic.json`;
+  }
+  return "https://raw.githubusercontent.com/shigechika/github-insights/main/data/traffic.json";
+}
+
 async function main() {
-  const res = await fetch("./traffic.json", { cache: "no-store" });
+  const res = await fetch(dataUrl(), { cache: "no-store" });
   const data = await res.json();
   document.getElementById("updated-at").textContent = data.updated_at || "—";
   const owner = data.owner || "shigechika";
