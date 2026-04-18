@@ -7,16 +7,16 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-18T05:25:49Z
+> Last updated: 2026-04-18T12:01:29Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
     title "Views by Repository (33 days)"
-    x-axis ["mcp-stdio", "github-insights", "junos-mcp", "aruba-central-mcp", "keycloak-mcp", "gws-mcp", "junos-ops", "homebrew-tap"]
+    x-axis ["mcp-stdio", "github-insights", "junos-mcp", "aruba-central-mcp", "gws-mcp", "keycloak-mcp", "junos-ops", "homebrew-tap"]
     y-axis "Views"
-    bar [330, 171, 121, 117, 115, 114, 104, 98]
+    bar [340, 181, 121, 117, 117, 115, 105, 98]
 ```
 
 ### Daily Views
@@ -26,7 +26,7 @@ xychart-beta horizontal
     title "Daily Views (All Repositories)"
     x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 8, 0]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 0]
 ```
 
 ### Clones by Repository
@@ -34,9 +34,9 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Clones by Repository (33 days)"
-    x-axis ["mcp-stdio", "homebrew-tap", "junos-ops", "junos-mcp", "github-insights", "aruba-central-mcp", "keycloak-mcp", "gws-mcp"]
+    x-axis ["mcp-stdio", "homebrew-tap", "junos-ops", "github-insights", "junos-mcp", "aruba-central-mcp", "keycloak-mcp", "gws-mcp"]
     y-axis "Clones"
-    bar [1094, 788, 594, 532, 514, 429, 317, 311]
+    bar [1352, 840, 601, 583, 532, 429, 318, 312]
 ```
 
 ### Repositories
