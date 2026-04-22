@@ -100,10 +100,6 @@ Click **Use this template → Create a new repository** at the top of this repo 
 
 After that, the cron runs automatically. Once a day is plenty — adjust the schedule in `.github/workflows/collect.yml` to suit your needs. Avoid scheduling at the top of the hour (especially `00:00 UTC`) since [scheduled workflows can be delayed during periods of high load](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule).
 
-## Roadmap
-
-- [ ] [Phase 3: Make this a template repository](https://github.com/shigechika/github-insights/issues/1)
-
 ## License
 
 [MIT](LICENSE) — Originally created by [shigechika/github-insights](https://github.com/shigechika/github-insights)
