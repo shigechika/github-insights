@@ -4,6 +4,8 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 
 **Live dashboard**: https://shigechika.github.io/github-insights/
 
+[![Dashboard screenshot](docs/screenshot.png)](https://shigechika.github.io/github-insights/)
+
 <!-- CHARTS:START -->
 ## Insights
 
