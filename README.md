@@ -65,6 +65,7 @@ GitHub only retains traffic data (views & clones) for **14 days**. This project 
 - **Cross-repository aggregation**: Unified stats across all public repositories of the owner
 - **Rename-aware**: Detects repository renames via GitHub API's 301 redirect and merges history under the new name automatically
 - **Long-term retention**: Preserves traffic data beyond GitHub's 14-day window
+- **Template-ready**: One-click "Use this template" — the dashboard derives owner/repo from `window.location`, so a fork self-configures with no code edits
 
 ## How it works
 
