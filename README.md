@@ -7,7 +7,7 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-22T05:40:08Z
+> Last updated: 2026-04-22T12:42:52Z
 
 ### Views by Repository
 
@@ -16,7 +16,7 @@ xychart-beta horizontal
     title "Views by Repository (37 days)"
     x-axis ["mcp-stdio", "github-insights", "junos-ops", "keycloak-mcp", "junos-mcp", "gws-mcp", "aruba-central-mcp", "homebrew-tap"]
     y-axis "Views"
-    bar [380, 190, 123, 123, 122, 122, 120, 98]
+    bar [380, 192, 123, 123, 122, 122, 120, 98]
 ```
 
 ### Daily Views
@@ -26,7 +26,7 @@ xychart-beta horizontal
     title "Daily Views (All Repositories)"
     x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 6, 0]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 0]
 ```
 
 ### Clones by Repository
@@ -36,7 +36,7 @@ xychart-beta horizontal
     title "Clones by Repository (37 days)"
     x-axis ["mcp-stdio", "homebrew-tap", "junos-ops", "github-insights", "gws-mcp", "junos-mcp", "aruba-central-mcp", "keycloak-mcp"]
     y-axis "Clones"
-    bar [2105, 1107, 873, 725, 620, 539, 436, 323]
+    bar [2105, 1126, 873, 771, 623, 540, 436, 323]
 ```
 
 ### Repositories
