@@ -254,12 +254,21 @@ function renderTotals(views, clones) {
   }));
   rows.sort((a, b) => (b.views + b.clones) - (a.views + a.clones));
   const tbody = document.querySelector("#totals-table tbody");
+  const owner = document.getElementById("owner-link").textContent;
   rows.forEach(r => {
     const tr = document.createElement("tr");
-    const owner = document.getElementById("owner-link").textContent;
-    tr.innerHTML = `<td><a href="https://github.com/${owner}/${r.repo}">${r.repo}</a></td>`
-      + `<td class="num">${r.views.toLocaleString()}</td>`
-      + `<td class="num">${r.clones.toLocaleString()}</td>`;
+    const repoCell = document.createElement("td");
+    const link = document.createElement("a");
+    link.href = `https://github.com/${owner}/${r.repo}`;
+    link.textContent = r.repo;
+    repoCell.appendChild(link);
+    const viewsCell = document.createElement("td");
+    viewsCell.className = "num";
+    viewsCell.textContent = r.views.toLocaleString();
+    const clonesCell = document.createElement("td");
+    clonesCell.className = "num";
+    clonesCell.textContent = r.clones.toLocaleString();
+    tr.append(repoCell, viewsCell, clonesCell);
     tbody.appendChild(tr);
   });
 }
@@ -303,8 +312,16 @@ async function main() {
 }
 
 main().catch(err => {
-  document.querySelector("main").innerHTML =
-    `<div class="card"><h2>Error</h2><pre>${err}</pre></div>`;
+  const mainEl = document.querySelector("main");
+  mainEl.replaceChildren();
+  const card = document.createElement("div");
+  card.className = "card";
+  const h2 = document.createElement("h2");
+  h2.textContent = "Error";
+  const pre = document.createElement("pre");
+  pre.textContent = String(err);
+  card.append(h2, pre);
+  mainEl.appendChild(card);
 });
 </script>
 </body>

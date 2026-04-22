@@ -9,6 +9,13 @@ on:
 permissions:
   contents: write
 
+# Prevent overlapping runs (cron + manual dispatch) from racing on the same
+# data file. Queue subsequent runs rather than cancelling — each tick still
+# carries fresh traffic data worth preserving.
+concurrency:
+  group: collect-traffic
+  cancel-in-progress: false
+
 jobs:
   collect:
     runs-on: ubuntu-latest
