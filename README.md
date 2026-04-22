@@ -66,19 +66,37 @@ GitHub only retains traffic data (views & clones) for **14 days**. This project 
 
 ## How it works
 
-1. **Daily collection**: GitHub Actions runs `scripts/collect.sh` at 00:00 UTC (09:00 JST)
+1. **Daily collection**: GitHub Actions runs `scripts/collect.sh` on a cron schedule
 2. **Data storage**: Traffic snapshots are merged into `data/traffic.json`, deduplicating by timestamp
-3. **Visualization**: (Phase 2) Stacked area charts via GitHub Pages + Chart.js
+3. **Visualization**: The dashboard at `docs/index.html` fetches `data/traffic.json` from `raw.githubusercontent.com` and renders stacked area charts with Chart.js
 
-## Manual trigger
+## Use this as a template
 
-```bash
-gh workflow run collect.yml
-```
+Click **Use this template → Create a new repository** at the top of this repo to spin up your own dashboard. After creating your copy:
 
-## Setup
+1. **Reset the data** so the dashboard starts fresh for your account:
+   ```bash
+   echo '{"updated_at":"","views":{},"clones":{}}' > data/traffic.json
+   git commit -am "chore: reset traffic data"
+   git push
+   ```
+2. **Create a Fine-grained PAT** at <https://github.com/settings/personal-access-tokens/new>:
+   - **Token name**: anything descriptive, e.g. `github-insights`
+   - **Repository access**: **All repositories** or **Only select repositories** (the *Public repositories* preset cannot grant the Administration permission required by the Traffic API)
+   - **Permissions → Repository → Administration**: **Read-only**
 
-Requires a Fine-grained PAT with **Administration: Read-only** permission, stored as `GH_INSIGHTS_PAT` in repository secrets.
+   > **Note**: Although "All repositories" technically grants access to your private repos as well, this tool only fetches traffic for **public** repositories — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is also limited to *read-only* metadata via the **Administration** permission.
+3. **Add the token as a secret** named `GH_INSIGHTS_PAT` (Settings → Secrets and variables → Actions → New repository secret).
+4. **Enable GitHub Pages** at Settings → Pages:
+   - Source: **Deploy from a branch**
+   - Branch: `main` / Folder: `/docs`
+5. **Run the workflow** once to seed data:
+   ```bash
+   gh workflow run collect.yml
+   ```
+   Wait a minute, then visit `https://<your-username>.github.io/<your-repo>/`.
+
+After that, the cron runs automatically. Once a day is plenty — adjust the schedule in `.github/workflows/collect.yml` to suit your needs. Avoid scheduling at the top of the hour (especially `00:00 UTC`) since [scheduled workflows can be delayed during periods of high load](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule).
 
 ## Roadmap
 
