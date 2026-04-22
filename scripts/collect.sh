@@ -29,7 +29,12 @@ for old_name in $existing_repos; do
   fi
 done
 
-# List all public repositories
+# List all public repositories.
+# IMPORTANT: `?type=public` is the *only* gate that keeps this tool from
+# touching private repos. The PAT may grant access to all repos (read-only
+# Administration), but we deliberately filter here so traffic data for
+# private repos is never fetched, stored, or published. Do not remove or
+# weaken this filter without auditing the downstream pipeline.
 repos=$(gh api "users/${OWNER}/repos?type=public&per_page=100" --jq '.[].name' | sort)
 
 for repo in $repos; do
