@@ -312,8 +312,8 @@ async function main() {
 }
 
 main().catch(err => {
-  const main = document.querySelector("main");
-  main.replaceChildren();
+  const mainEl = document.querySelector("main");
+  mainEl.replaceChildren();
   const card = document.createElement("div");
   card.className = "card";
   const h2 = document.createElement("h2");
@@ -321,7 +321,7 @@ main().catch(err => {
   const pre = document.createElement("pre");
   pre.textContent = String(err);
   card.append(h2, pre);
-  main.appendChild(card);
+  mainEl.appendChild(card);
 });
 </script>
 </body>
