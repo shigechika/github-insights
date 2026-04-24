@@ -9,16 +9,16 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-23T20:34:41Z
+> Last updated: 2026-04-24T05:56:33Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (38 days)"
-    x-axis ["mcp-stdio", "github-insights", "keycloak-mcp", "junos-ops", "junos-mcp", "gws-mcp", "aruba-central-mcp", "homebrew-tap"]
+    title "Views by Repository (39 days)"
+    x-axis ["mcp-stdio", "github-insights", "junos-ops", "keycloak-mcp", "junos-mcp", "gws-mcp", "aruba-central-mcp", "homebrew-tap"]
     y-axis "Views"
-    bar [388, 204, 135, 127, 124, 122, 121, 98]
+    bar [401, 204, 161, 135, 124, 122, 121, 98]
 ```
 
 ### Daily Views
@@ -26,19 +26,19 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Daily Views (All Repositories)"
-    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23"]
+    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 45, 0]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 45, 47, 0]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (38 days)"
+    title "Clones by Repository (39 days)"
     x-axis ["mcp-stdio", "homebrew-tap", "junos-ops", "github-insights", "keycloak-mcp", "gws-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Clones"
-    bar [2218, 1228, 939, 908, 655, 644, 562, 436]
+    bar [2310, 1416, 1412, 908, 682, 644, 562, 436]
 ```
 
 ### Repositories
