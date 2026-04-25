@@ -20,7 +20,11 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      # Third-party Actions are pinned to a full commit SHA (with the human-
+      # readable version in a trailing comment) per GitHub's supply-chain
+      # hardening guidance. Dependabot keeps the pin current via PRs — do
+      # not "clean up" the SHA back to a tag.
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Collect traffic data
         env:
