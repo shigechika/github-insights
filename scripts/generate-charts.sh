@@ -137,5 +137,12 @@ else
   fi
 fi
 
+# When running under GitHub Actions, also publish the same Insights block
+# to the run's step summary so each cron tick is glanceable from the
+# Actions tab without opening README or the dashboard.
+if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+  cat charts.md >> "$GITHUB_STEP_SUMMARY"
+fi
+
 rm -f charts.md
 echo "Charts updated in ${README}"
