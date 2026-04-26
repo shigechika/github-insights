@@ -18,8 +18,13 @@ const out = 'docs/screenshot.png';
   console.log(`Capturing ${url} -> ${out}`);
   const browser = await chromium.launch();
   try {
+    // Crop to the two chart cards (Daily Views + Daily Clones). Below them
+    // sits a 50+ row Repository totals table which makes a fullPage capture
+    // dominated by a long tail. Viewport height 1125 (CSS px) lands just at
+    // the bottom of the second card; with deviceScaleFactor 2 the resulting
+    // PNG is 2560×2250.
     const context = await browser.newContext({
-      viewport: { width: 1280, height: 800 },
+      viewport: { width: 1280, height: 1125 },
       deviceScaleFactor: 2,
       colorScheme: 'light',
     });
@@ -29,7 +34,7 @@ const out = 'docs/screenshot.png';
     // to exist, then a short settle for animations.
     await page.waitForSelector('canvas');
     await page.waitForTimeout(2000);
-    await page.screenshot({ path: out, fullPage: true });
+    await page.screenshot({ path: out, fullPage: false });
     console.log(`Saved ${out}`);
   } finally {
     await browser.close();
