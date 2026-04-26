@@ -36,10 +36,19 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_INSIGHTS_PAT }}
         run: bash scripts/generate-charts.sh
 
+      # Refresh README screenshot from the live dashboard. Soft-failure on
+      # purpose — a hiccup here must not block the daily traffic collection.
+      - name: Update screenshot
+        continue-on-error: true
+        run: |
+          npm install --no-save playwright@1.59.1
+          npx playwright install --with-deps chromium
+          node scripts/screenshot.js
+
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/traffic.json README.md
+          git add data/traffic.json README.md docs/screenshot.png
           git diff --cached --quiet || git commit -m "chore: update traffic data $(date -u +%Y-%m-%d)"
           git push
