@@ -13,13 +13,33 @@ if [[ ! -f "$DATA_FILE" ]]; then
   echo '{"updated_at":"","views":{},"clones":{}}' > "$DATA_FILE"
 fi
 
+# Compute the public repo list once. This is the single source of truth for
+# "which repos are in scope" and is shared by both the rename reconciliation
+# loop below and the data-collection loop further down.
+#
+# IMPORTANT: `?type=public` is the *only* gate that keeps this tool from
+# touching private repos. The PAT may grant access to all repos (read-only
+# Administration), but we deliberately filter here so traffic data for
+# private repos is never fetched, stored, or published. Do not remove or
+# weaken this filter without auditing the downstream pipeline.
+public_repos=$(gh api "users/${OWNER}/repos?type=public&per_page=100" --jq '.[].name' | sort)
+
 # Reconcile repository renames.
 # GitHub API 301-redirects old names to new ones; the returned .name is the
 # canonical current name. Merge any renamed repo's history into the new key.
+#
+# To preserve the public-only invariant, we (a) skip the probe entirely when
+# old_name is still in the current public list (no rename could have
+# happened), and (b) only honor a detected rename when new_name is also in
+# the public list — so historical data is never reorganized toward a
+# private repo's name even if a private name ever sneaks into traffic.json.
 existing_repos=$(jq -r '[(.views // {} | keys[]), (.clones // {} | keys[])] | unique[]' "$DATA_FILE")
 for old_name in $existing_repos; do
+  echo "$public_repos" | grep -qFx "$old_name" && continue
+
   new_name=$(gh api "repos/${OWNER}/${old_name}" --jq '.name' 2>/dev/null || echo "")
   if [[ -n "$new_name" && "$new_name" != "$old_name" ]]; then
+    echo "$public_repos" | grep -qFx "$new_name" || continue
     echo "Detected rename: ${old_name} -> ${new_name}"
     jq --arg old "$old_name" --arg new "$new_name" '
         .views[$new]  = ((.views[$new]  // {}) * (.views[$old]  // {}))
@@ -29,13 +49,7 @@ for old_name in $existing_repos; do
   fi
 done
 
-# List all public repositories.
-# IMPORTANT: `?type=public` is the *only* gate that keeps this tool from
-# touching private repos. The PAT may grant access to all repos (read-only
-# Administration), but we deliberately filter here so traffic data for
-# private repos is never fetched, stored, or published. Do not remove or
-# weaken this filter without auditing the downstream pipeline.
-repos=$(gh api "users/${OWNER}/repos?type=public&per_page=100" --jq '.[].name' | sort)
+repos="$public_repos"
 
 for repo in $repos; do
   echo "Collecting traffic for ${OWNER}/${repo}..."
