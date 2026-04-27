@@ -9,13 +9,13 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-26T20:05:40Z
+> Last updated: 2026-04-27T06:16:32Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (40 days)"
+    title "Views by Repository (41 days)"
     x-axis ["mcp-stdio", "github-insights", "junos-ops", "keycloak-mcp", "junos-mcp", "gws-mcp", "aruba-central-mcp", "homebrew-tap"]
     y-axis "Views"
     bar [401, 221, 165, 135, 130, 129, 123, 98]
@@ -26,19 +26,19 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Daily Views (All Repositories)"
-    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25"]
+    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 45, 64, 20, 0]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 45, 64, 20, 2, 0]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (40 days)"
-    x-axis ["mcp-stdio", "junos-ops", "homebrew-tap", "github-insights", "keycloak-mcp", "gws-mcp", "junos-mcp", "aruba-central-mcp"]
+    title "Clones by Repository (41 days)"
+    x-axis ["mcp-stdio", "junos-ops", "homebrew-tap", "github-insights", "gws-mcp", "keycloak-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Clones"
-    bar [2403, 1634, 1519, 1087, 705, 690, 597, 561]
+    bar [2482, 1634, 1519, 1087, 747, 712, 597, 569]
 ```
 
 ### Repositories
