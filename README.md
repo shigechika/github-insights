@@ -9,16 +9,16 @@ GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-04-29T13:10:12Z
+> Last updated: 2026-04-29T20:42:33Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
     title "Views by Repository (42 days)"
-    x-axis ["mcp-stdio", "github-insights", "junos-ops", "keycloak-mcp", "junos-mcp", "gws-mcp", "aruba-central-mcp", "homebrew-tap"]
+    x-axis ["mcp-stdio", "github-insights", "junos-ops", "keycloak-mcp", "junos-mcp", "gws-mcp", "aruba-central-mcp", "jquants-mcp"]
     y-axis "Views"
-    bar [406, 234, 166, 135, 131, 130, 124, 98]
+    bar [406, 234, 166, 135, 131, 130, 124, 104]
 ```
 
 ### Daily Views
@@ -28,7 +28,7 @@ xychart-beta horizontal
     title "Daily Views (All Repositories)"
     x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 40, 43, 32, 32, 38, 19, 9, 45, 64, 20, 6, 6, 12]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 41, 43, 32, 32, 45, 19, 9, 45, 73, 20, 49, 42, 20]
 ```
 
 ### Clones by Repository
@@ -36,9 +36,9 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Clones by Repository (42 days)"
-    x-axis ["mcp-stdio", "junos-ops", "homebrew-tap", "github-insights", "gws-mcp", "aruba-central-mcp", "keycloak-mcp", "junos-mcp"]
+    x-axis ["mcp-stdio", "junos-ops", "homebrew-tap", "github-insights", "jquants-mcp", "gws-mcp", "aruba-central-mcp", "keycloak-mcp"]
     y-axis "Clones"
-    bar [2491, 1676, 1582, 1519, 750, 713, 713, 633]
+    bar [2491, 1676, 1582, 1519, 936, 750, 713, 713]
 ```
 
 ### Repositories
@@ -49,6 +49,7 @@ xychart-beta horizontal
 | [github-insights](https://github.com/shigechika/github-insights) | GitHub Traffic insights dashboard — aggregates views/clones across a user's public repositories |
 | [gws-mcp](https://github.com/shigechika/gws-mcp) | MCP fork of Google Workspace CLI — exposes Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more to AI assistants. Dynamically built from Google Discovery Service. Includes AI agent skills. |
 | [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
+| [jquants-mcp](https://github.com/shigechika/jquants-mcp) | MCP server for Japanese stock market data via J-Quants API — tools for price history, financials, screeners, and candlestick charts |
 | [junos-mcp](https://github.com/shigechika/junos-mcp) | MCP server for Juniper/JUNOS — show, upgrade with rollback, config push (commit confirmed) with safe dry-run defaults, RSI/SCF collection |
 | [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
