@@ -95,13 +95,20 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
   echo ""
   echo "### Repositories"
   echo ""
-  # Collect all repos that appear in views or clones charts (top 8 each), deduplicate
+  # Collect repos from views/clones top 8 each, deduplicate, sort by combined traffic desc
   jq -r '
-    ([.views | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
-      | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo),
-    ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
-      | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8] | .[].repo)
-  ' "$DATA_FILE" | sort -u | {
+    ([.views | to_entries[] | {key: .key, value: ([.value | to_entries[].value.count] | add // 0)}] | from_entries) as $vt |
+    ([.clones | to_entries[] | {key: .key, value: ([.value | to_entries[].value.count] | add // 0)}] | from_entries) as $ct |
+    [
+      ([.views | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
+        | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8][].repo),
+      ([.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
+        | sort_by(-.total) | [.[] | select(.total > 0)] | .[0:8][].repo)
+    ] | unique
+    | map({repo: ., total: (($vt[.] // 0) + ($ct[.] // 0))})
+    | sort_by(-.total)
+    | .[].repo
+  ' "$DATA_FILE" | {
     echo "| Repository | Description |"
     echo "| --- | --- |"
     while read -r repo; do
