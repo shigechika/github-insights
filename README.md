@@ -2,7 +2,7 @@
 
 GitHub Traffic insights dashboard for [shigechika](https://github.com/shigechika) repositories.
 
-[日本語](README.ja.md)
+English | [日本語](README.ja.md)
 
 **Live dashboard**: https://shigechika.github.io/github-insights/
 

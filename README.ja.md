@@ -1,8 +1,8 @@
 # github-insights
 
-[shigechika](https://github.com/shigechika) リポジトリの GitHub トラフィックインサイト
+[shigechika](https://github.com/shigechika) リポジトリの GitHub トラフィックインサイトダッシュボード
 
-[English](README.md)
+[English](README.md) | 日本語
 
 **ライブダッシュボード**: https://shigechika.github.io/github-insights/
 
