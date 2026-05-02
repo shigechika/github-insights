@@ -60,12 +60,12 @@ xychart-beta horizontal
 
 ## Overview
 
-GitHub only retains traffic data (views & clones) for **14 days**. This project collects and preserves that data daily via GitHub Actions, building long-term traffic history.
+GitHub only retains traffic data (views & clones) for **14 days**. github-insights leverages GitHub Actions and the GitHub ecosystem to collect data daily, preserve it long-term, and keep traffic insights automatically up to date.
 
 ## Features
 
 - **Interactive dashboard**: Stacked area charts (views & clones) on GitHub Pages with 30d / 90d / 1y / All range toggles
-- **Cross-repository aggregation**: Unified stats across all public repositories of the owner
+- **Cross-repository aggregation**: Unified stats across all your public repositories
 - **Rename-aware**: Detects repository renames via GitHub API's 301 redirect and merges history under the new name automatically
 - **Long-term retention**: Preserves traffic data beyond GitHub's 14-day window
 - **Template-ready**: One-click "Use this template" — the dashboard derives owner/repo from `window.location`, so a fork self-configures with no code edits
@@ -91,7 +91,7 @@ Click **Use this template → Create a new repository** at the top of this repo 
    - **Repository access**: **All repositories** or **Only select repositories** (the *Public repositories* preset cannot grant the Administration permission required by the Traffic API)
    - **Permissions → Repository → Administration**: **Read-only**
 
-   > **Note**: Although "All repositories" technically grants access to your private repos as well, this tool only fetches traffic for **public** repositories — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is also limited to *read-only* metadata via the **Administration** permission.
+   > **Note**: Although "All repositories" grants access to your private repos as well, this tool targets **public repositories only** — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is scoped to **read-only** via the Administration permission, keeping the required access to the minimum necessary.
 3. **Add the token as a secret** named `GH_INSIGHTS_PAT` (Settings → Secrets and variables → Actions → New repository secret).
 4. **Enable GitHub Pages** at Settings → Pages:
    - Source: **Deploy from a branch**
@@ -100,7 +100,7 @@ Click **Use this template → Create a new repository** at the top of this repo 
    ```bash
    gh workflow run collect.yml
    ```
-   Wait a minute, then visit `https://<your-username>.github.io/<your-repo>/`.
+   Wait a few minutes, then visit `https://<your-username>.github.io/<your-repo>/`.
 
 After that, the cron runs automatically. Two or three times a day is a good baseline — scheduled runs can occasionally be delayed or fail to trigger entirely, so multiple runs per day ensures data is reliably captured. Adjust the schedule in `.github/workflows/collect.yml` to suit your needs. Avoid scheduling at the top of the hour (especially `00:00 UTC`) as runs can be delayed or fail to fire ([GitHub Docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)).
 
