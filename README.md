@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-05-11T21:05:18Z
+> Last updated: 2026-05-12T10:11:40Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (55 days)"
+    title "Views by Repository (56 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "junos-ops", "github-insights", "keycloak-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [979, 496, 413, 366, 348, 159, 156, 129]
+    bar [980, 498, 422, 366, 350, 159, 156, 129]
 ```
 
 ### Daily Views
@@ -28,19 +28,19 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Daily Views (All Repositories)"
-    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10"]
+    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 41, 43, 32, 32, 45, 19, 9, 45, 73, 20, 49, 42, 20, 82, 146, 59, 113, 56, 168, 28, 85, 91, 191, 355, 163, 129]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 41, 43, 32, 32, 45, 19, 9, 45, 73, 20, 49, 42, 20, 82, 146, 59, 113, 56, 168, 28, 85, 91, 191, 355, 163, 129, 14]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (55 days)"
-    x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "homebrew-tap", "github-insights", "keycloak-mcp", "aruba-central-mcp"]
+    title "Clones by Repository (56 days)"
+    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "junos-ops", "homebrew-tap", "github-insights", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Clones"
-    bar [7360, 3363, 2427, 2423, 2254, 2174, 1103, 872]
+    bar [7363, 3363, 2642, 2433, 2284, 2204, 1103, 875]
 ```
 
 ### Repositories
