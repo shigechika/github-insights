@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-05-28T21:34:08Z
+> Last updated: 2026-05-29T10:57:42Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (72 days)"
+    title "Views by Repository (73 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "junos-ops", "github-insights", "junos-mcp", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [1423, 604, 480, 396, 389, 173, 170, 167]
+    bar [1427, 625, 481, 432, 390, 173, 170, 167]
 ```
 
 ### Daily Views
@@ -28,19 +28,19 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Daily Views (All Repositories)"
-    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27"]
+    x-axis ["03-28", "03-29", "03-30", "03-31", "04-01", "04-02", "04-03", "04-04", "04-05", "04-06", "04-07", "04-08", "04-09", "04-10", "04-11", "04-12", "04-13", "04-14", "04-15", "04-16", "04-17", "04-18", "04-19", "04-20", "04-21", "04-22", "04-23", "04-24", "04-25", "04-26", "04-27", "04-28", "04-29", "04-30", "05-01", "05-02", "05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28"]
     y-axis "Views"
-    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 41, 43, 32, 32, 45, 19, 9, 45, 73, 20, 49, 42, 20, 82, 146, 59, 113, 56, 168, 28, 85, 91, 191, 355, 163, 129, 14, 23, 4, 10, 22, 33, 146, 91, 32, 39, 26, 29, 115, 41, 64, 115, 62]
+    bar [19, 7, 6, 45, 43, 39, 10, 170, 136, 53, 17, 55, 89, 70, 40, 139, 144, 99, 41, 43, 32, 32, 45, 19, 9, 45, 73, 20, 49, 42, 20, 82, 146, 59, 113, 56, 168, 28, 85, 91, 191, 355, 163, 129, 14, 23, 4, 10, 22, 33, 146, 91, 32, 39, 26, 29, 115, 41, 64, 115, 62, 65]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (72 days)"
-    x-axis ["jquants-mcp", "gws-mcp", "mcp-stdio", "github-insights", "junos-ops", "homebrew-tap", "keycloak-mcp", "aruba-central-mcp"]
+    title "Clones by Repository (73 days)"
+    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "junos-ops", "github-insights", "homebrew-tap", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Clones"
-    bar [12503, 3490, 3452, 2621, 2580, 2422, 1328, 1139]
+    bar [12681, 3792, 3499, 2648, 2641, 2471, 1340, 1149]
 ```
 
 ### Repositories
@@ -50,8 +50,8 @@ xychart-beta horizontal
 | [jquants-mcp](https://github.com/shigechika/jquants-mcp) | MCP server for Japanese stock market data via J-Quants API — tools for price history, financials, screeners, and candlestick charts |
 | [mcp-stdio](https://github.com/shigechika/mcp-stdio) | Stdio-to-HTTP gateway — connects MCP clients to remote HTTP MCP servers |
 | [gws-mcp](https://github.com/shigechika/gws-mcp) | MCP fork of Google Workspace CLI — exposes Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more to AI assistants. Dynamically built from Google Discovery Service. Includes AI agent skills. |
-| [github-insights](https://github.com/shigechika/github-insights) | GitHub Traffic insights dashboard — aggregates views/clones across a user's public repositories |
 | [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
+| [github-insights](https://github.com/shigechika/github-insights) | GitHub Traffic insights dashboard — aggregates views/clones across a user's public repositories |
 | [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
 | [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp) | MCP server for Aruba Central: expose AP, switch, and client status to AI assistants |
