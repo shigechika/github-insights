@@ -35,10 +35,12 @@ views_bar=$(jq -r --arg days "${views_days} days" '
     + "]"
 ' "$DATA_FILE")
 
-# --- Chart 2: Daily views aggregate (horizontal bar, last 30 days) ---
-# Trim leading zeros, then window to the most recent 30 days so the chart
-# stays readable as history accumulates. Height scales with the bar count
-# (~23px each) so every day's bar has room and never squishes vertically.
+# --- Chart 2: Daily views aggregate (horizontal bar, recent window) ---
+# Trim leading zeros, then keep only the most recent $window data points so
+# the chart stays readable as history accumulates. Height scales with the
+# bar count (~23px per bar + 70px for the title and axis labels), floored at
+# 200px so a sparse dataset still renders legibly instead of squishing. The
+# title reports the actual bar count, so it never over-promises a fixed span.
 daily_views=$(jq -r '
   [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
   | group_by(.date)
@@ -47,9 +49,12 @@ daily_views=$(jq -r '
   | . as $all
   | (first(range(length) | select($all[.].total > 0)) // 0) as $start
   | .[$start:]
-  | .[-30:]
-  | (length * 23 + 70) as $height
-  | "---\nconfig:\n  xyChart:\n    height: \($height)\n---\nxychart-beta horizontal\n    title \"Daily Views (Last 30 days)\"\n    x-axis ["
+  | 30 as $window
+  | .[-$window:]
+  | length as $days
+  | ([$days * 23 + 70, 200] | max) as $height
+  | (if $days == 1 then "day" else "days" end) as $unit
+  | "---\nconfig:\n  xyChart:\n    height: \($height)\n---\nxychart-beta horizontal\n    title \"Daily Views (Last \($days) \($unit))\"\n    x-axis ["
     + ([.[].date | split("T")[0] | .[5:]] | map("\"" + . + "\"") | join(", "))
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
