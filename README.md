@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-06-01T22:23:24Z
+> Last updated: 2026-06-02T11:52:13Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (77 days)"
+    title "Views by Repository (78 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "junos-ops", "github-insights", "junos-mcp", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [1453, 628, 482, 437, 399, 173, 170, 168]
+    bar [1456, 651, 482, 437, 400, 173, 170, 168]
 ```
 
 ### Daily Views
@@ -33,19 +33,19 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["05-03", "05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01"]
+    x-axis ["05-04", "05-05", "05-06", "05-07", "05-08", "05-09", "05-10", "05-11", "05-12", "05-13", "05-14", "05-15", "05-16", "05-17", "05-18", "05-19", "05-20", "05-21", "05-22", "05-23", "05-24", "05-25", "05-26", "05-27", "05-28", "05-29", "05-30", "05-31", "06-01", "06-02"]
     y-axis "Views"
-    bar [168, 28, 85, 91, 191, 355, 163, 129, 14, 23, 4, 10, 22, 33, 146, 91, 32, 39, 26, 29, 115, 41, 64, 115, 62, 65, 11, 8, 32, 0]
+    bar [28, 85, 91, 191, 355, 163, 129, 14, 23, 4, 10, 22, 33, 146, 91, 32, 39, 26, 29, 115, 41, 64, 115, 62, 65, 11, 8, 32, 29, 0]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (77 days)"
+    title "Clones by Repository (78 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "junos-ops", "homebrew-tap", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Clones"
-    bar [14189, 4547, 3511, 2766, 2732, 2525, 1356, 1160]
+    bar [14199, 10006, 3520, 2805, 2732, 2530, 1356, 1163]
 ```
 
 ### Repositories
@@ -55,8 +55,8 @@ xychart-beta horizontal
 | [jquants-mcp](https://github.com/shigechika/jquants-mcp) | MCP server for Japanese stock market data via J-Quants API — tools for price history, financials, screeners, and candlestick charts |
 | [mcp-stdio](https://github.com/shigechika/mcp-stdio) | Stdio-to-HTTP gateway — connects MCP clients to remote HTTP MCP servers |
 | [gws-mcp](https://github.com/shigechika/gws-mcp) | MCP fork of Google Workspace CLI — exposes Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more to AI assistants. Dynamically built from Google Discovery Service. Includes AI agent skills. |
-| [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
 | [github-insights](https://github.com/shigechika/github-insights) | GitHub Traffic insights dashboard — aggregates views/clones across a user's public repositories |
+| [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
 | [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
 | [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp) | MCP server for Aruba Central: expose AP, switch, and client status to AI assistants |
