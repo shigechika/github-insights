@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-07-03T20:41:55Z
+> Last updated: 2026-07-04T09:48:14Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (108 days)"
-    x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "junos-mcp", "keycloak-mcp", "aruba-central-mcp"]
+    title "Views by Repository (109 days)"
+    x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [1546, 842, 568, 496, 422, 198, 192, 186]
+    bar [1602, 845, 569, 496, 423, 205, 198, 186]
 ```
 
 ### Daily Views
@@ -33,19 +33,19 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["06-03", "06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29", "06-30", "07-01", "07-02"]
+    x-axis ["06-04", "06-05", "06-06", "06-07", "06-08", "06-09", "06-10", "06-11", "06-12", "06-13", "06-14", "06-15", "06-16", "06-17", "06-18", "06-19", "06-20", "06-21", "06-22", "06-23", "06-24", "06-25", "06-26", "06-27", "06-28", "06-29", "06-30", "07-01", "07-02", "07-03"]
     y-axis "Views"
-    bar [14, 7, 26, 26, 30, 11, 7, 9, 10, 5, 9, 14, 6, 78, 18, 44, 2, 4, 4, 12, 5, 21, 14, 34, 20, 27, 25, 44, 8, 50]
+    bar [7, 26, 26, 30, 11, 7, 9, 10, 5, 9, 14, 6, 78, 18, 44, 2, 4, 4, 12, 5, 21, 14, 34, 20, 27, 25, 44, 8, 50, 74]
 ```
 
 ### Clones by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (108 days)"
+    title "Clones by Repository (109 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "junos-ops", "homebrew-tap", "keycloak-mcp", "junos-mcp"]
     y-axis "Clones"
-    bar [16704, 12745, 4375, 3923, 3409, 3183, 1973, 1690]
+    bar [16934, 12765, 4401, 3949, 3412, 3191, 2119, 1697]
 ```
 
 ### Repositories
