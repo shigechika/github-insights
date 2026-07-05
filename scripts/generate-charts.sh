@@ -61,7 +61,26 @@ daily_views=$(jq -r '
     + "]"
 ' "$DATA_FILE")
 
-# --- Chart 3: Top repositories by clones (bar chart, top 8) ---
+# --- Chart 3: Daily ranking (top 10 days by views across all history) ---
+# Unlike Chart 2 (recent window, chronological), this surfaces the all-time
+# busiest days regardless of when they occurred, so dates use the full
+# YYYY-MM-DD form to stay unambiguous once the dataset spans multiple years.
+daily_ranking=$(jq -r '
+  [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
+  | group_by(.date)
+  | map({date: .[0].date, total: ([.[].count] | add)})
+  | sort_by(-.total, .date)
+  | .[0:10]
+  | length as $n
+  | ([$n * 23 + 70, 200] | max) as $height
+  | "---\nconfig:\n  xyChart:\n    height: \($height)\n---\nxychart-beta horizontal\n    title \"Daily Ranking (Top \($n) days by views)\"\n    x-axis ["
+    + ([.[].date | split("T")[0]] | map("\"" + . + "\"") | join(", "))
+    + "]\n    y-axis \"Views\"\n    bar ["
+    + ([.[].total | tostring] | join(", "))
+    + "]"
+' "$DATA_FILE")
+
+# --- Chart 4: Top repositories by clones (bar chart, top 8) ---
 clones_bar=$(jq -r --arg days "${views_days} days" '
   [.clones | to_entries[] | {repo: .key, total: ([.value | to_entries[].value.count] | add)}]
   | sort_by(-.total)
@@ -93,6 +112,12 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
   echo ""
   echo '```mermaid'
   echo -e "$daily_views"
+  echo '```'
+  echo ""
+  echo "### Daily Ranking"
+  echo ""
+  echo '```mermaid'
+  echo -e "$daily_ranking"
   echo '```'
   if [[ "$clones_bar" != "NONE" ]]; then
     echo ""
