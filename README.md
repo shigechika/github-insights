@@ -38,6 +38,21 @@ xychart-beta horizontal
     bar [7, 26, 26, 30, 11, 7, 9, 10, 5, 9, 14, 6, 78, 18, 44, 2, 4, 4, 12, 5, 21, 14, 34, 20, 27, 25, 44, 8, 50, 74]
 ```
 
+### Daily Ranking
+
+```mermaid
+---
+config:
+  xyChart:
+    height: 300
+---
+xychart-beta horizontal
+    title "Daily Ranking (Top 10 days by views)"
+    x-axis ["2026-05-08", "2026-05-07", "2026-04-04", "2026-05-03", "2026-05-09", "2026-04-29", "2026-05-17", "2026-04-13", "2026-04-12", "2026-04-05"]
+    y-axis "Views"
+    bar [355, 191, 170, 168, 163, 146, 146, 144, 139, 136]
+```
+
 ### Clones by Repository
 
 ```mermaid
