@@ -35,6 +35,16 @@ views_bar=$(jq -r --arg days "${views_days} days" '
     + "]"
 ' "$DATA_FILE")
 
+# --- Shared: daily views totals, aggregated once and reused by charts 2 & 3 ---
+# Both the recent-window chart and the all-time ranking start from the same
+# per-day totals, so compute that aggregation a single time here instead of
+# re-running the same group_by/sum jq pipeline twice.
+daily_totals=$(jq -c '
+  [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
+  | group_by(.date)
+  | map({date: .[0].date, total: ([.[].count] | add)})
+' "$DATA_FILE")
+
 # --- Chart 2: Daily views aggregate (horizontal bar, recent window) ---
 # Trim leading zeros, then keep only the most recent $window data points so
 # the chart stays readable as history accumulates. Height scales with the
@@ -42,10 +52,7 @@ views_bar=$(jq -r --arg days "${views_days} days" '
 # 200px so a sparse dataset still renders legibly instead of squishing. The
 # title reports the actual bar count, so it never over-promises a fixed span.
 daily_views=$(jq -r '
-  [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
-  | group_by(.date)
-  | sort_by(.[0].date)
-  | map({date: .[0].date, total: ([.[].count] | add)})
+  sort_by(.date)
   | . as $all
   | (first(range(length) | select($all[.].total > 0)) // 0) as $start
   | .[$start:]
@@ -59,26 +66,30 @@ daily_views=$(jq -r '
     + "]\n    y-axis \"Views\"\n    bar ["
     + ([.[].total | tostring] | join(", "))
     + "]"
-' "$DATA_FILE")
+' <<< "$daily_totals")
 
 # --- Chart 3: Daily ranking (top 10 days by views across all history) ---
 # Unlike Chart 2 (recent window, chronological), this surfaces the all-time
 # busiest days regardless of when they occurred, so dates use the full
 # YYYY-MM-DD form to stay unambiguous once the dataset spans multiple years.
+# Zero-count days are excluded (a young/template dataset can have fewer than
+# 10 days with any traffic at all) and the section is omitted entirely (like
+# Chart 4) when nothing qualifies.
 daily_ranking=$(jq -r '
-  [.views | to_entries[].value | to_entries[] | {date: .key, count: .value.count}]
-  | group_by(.date)
-  | map({date: .[0].date, total: ([.[].count] | add)})
+  [.[] | select(.total > 0)]
   | sort_by(-.total, .date)
   | .[0:10]
-  | length as $n
-  | ([$n * 23 + 70, 200] | max) as $height
-  | "---\nconfig:\n  xyChart:\n    height: \($height)\n---\nxychart-beta horizontal\n    title \"Daily Ranking (Top \($n) days by views)\"\n    x-axis ["
-    + ([.[].date | split("T")[0]] | map("\"" + . + "\"") | join(", "))
-    + "]\n    y-axis \"Views\"\n    bar ["
-    + ([.[].total | tostring] | join(", "))
-    + "]"
-' "$DATA_FILE")
+  | if length == 0 then "NONE" else
+    length as $n
+    | ([$n * 23 + 70, 200] | max) as $height
+    | (if $n == 1 then "day" else "days" end) as $unit
+    | "---\nconfig:\n  xyChart:\n    height: \($height)\n---\nxychart-beta horizontal\n    title \"Daily Ranking (Top \($n) \($unit) by views)\"\n    x-axis ["
+      + ([.[].date | split("T")[0]] | map("\"" + . + "\"") | join(", "))
+      + "]\n    y-axis \"Views\"\n    bar ["
+      + ([.[].total | tostring] | join(", "))
+      + "]"
+  end
+' <<< "$daily_totals")
 
 # --- Chart 4: Top repositories by clones (bar chart, top 8) ---
 clones_bar=$(jq -r --arg days "${views_days} days" '
@@ -113,12 +124,14 @@ clones_bar=$(jq -r --arg days "${views_days} days" '
   echo '```mermaid'
   echo -e "$daily_views"
   echo '```'
-  echo ""
-  echo "### Daily Ranking"
-  echo ""
-  echo '```mermaid'
-  echo -e "$daily_ranking"
-  echo '```'
+  if [[ "$daily_ranking" != "NONE" ]]; then
+    echo ""
+    echo "### Daily Ranking"
+    echo ""
+    echo '```mermaid'
+    echo -e "$daily_ranking"
+    echo '```'
+  fi
   if [[ "$clones_bar" != "NONE" ]]; then
     echo ""
     echo "### Clones by Repository"
