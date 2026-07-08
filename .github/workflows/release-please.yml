@@ -1,0 +1,29 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      # SHA-pinned per supply-chain hardening guidance; Dependabot keeps it
+      # current. See collect.yml for the full rationale.
+      - uses: googleapis/release-please-action@8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5 # v4.4.0
+        with:
+          # Use a fine-grained PAT so that the tag and Release created by
+          # release-please can trigger downstream workflows and so PR
+          # creation isn't blocked by this being a personal repo (see
+          # SECURITY.md "Branch protection" -- adding github-actions[bot] to
+          # the ruleset bypass list failed validation via the API; issue #7).
+          # Falls back to GITHUB_TOKEN when the secret is unset so PR CI
+          # keeps working on forks.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
