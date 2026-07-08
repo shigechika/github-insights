@@ -27,10 +27,11 @@ scheduled `collect.yml` workflow succeeding in production.
 ## Architecture
 
 - `scripts/collect.sh` — single source of truth for "which repos are in
-  scope": `gh api users/<owner>/repos?type=public` (the `IMPORTANT` comment
-  block right above that line is the whole public-only invariant this repo
-  depends on — see SECURITY.md's "Public-only invariant" section before
-  touching it). Also reconciles repo renames (GitHub's 301-redirect on a
+  scope": `gh api users/<owner>/repos?type=public&per_page=100` (the
+  `IMPORTANT` comment block right above that line is the whole public-only
+  invariant this repo depends on — see SECURITY.md's "Public-only
+  invariant" section before touching it). Also reconciles repo renames
+  (GitHub's 301-redirect on a
   renamed repo) by merging the old name's history into the new one in
   `data/traffic.json`, but only when the resolved new name is itself still
   in the public list.
