@@ -124,7 +124,7 @@ Click **Use this template → Create a new repository** at the top of this repo 
 
 After that, the cron runs automatically. Two or three times a day is a good baseline — scheduled runs can occasionally be delayed or fail to trigger entirely, so multiple runs per day ensures data is reliably captured. Adjust the schedule in `.github/workflows/collect.yml` to suit your needs. Avoid scheduling at the top of the hour (especially `00:00 UTC`) as runs can be delayed or fail to fire ([GitHub Docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)).
 
-> **Troubleshooting**: If the workflow fails with `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable`, the `GH_INSIGHTS_PAT` secret from step 2–3 above hasn't been added to this repo (or was added under a different name). Check Settings → Secrets and variables → Actions → Repository secrets.
+> **Troubleshooting**: If the workflow fails with `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable`, the `GH_INSIGHTS_PAT` secret from step 3 above (using the PAT created in step 2) hasn't been added to this repo — or was added under a different name. Check Settings → Secrets and variables → Actions → Repository secrets.
 
 ## License
 

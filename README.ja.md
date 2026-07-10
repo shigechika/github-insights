@@ -57,7 +57,7 @@ GitHub のトラフィックデータ（閲覧数・クローン数）は **14�
 
 以降は GitHub Actions の cron が自動実行します。1日2〜3回程度が目安です。スケジュール実行は遅延したり発火しないことがあるため、複数回設定しておくとデータを確実に収集できます。スケジュールは `.github/workflows/collect.yml` で調整できます。毎時0分（特に `00:00 UTC`）の実行は遅延したり失敗することがあるので避けてください（[参考: GitHub Docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)）。
 
-> **トラブルシューティング**: ワークフローが `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable` で失敗する場合、手順2〜3の `GH_INSIGHTS_PAT` シークレットがこのリポジトリに登録されていません（または別の名前で登録されています）。Settings → Secrets and variables → Actions → Repository secrets を確認してください。
+> **トラブルシューティング**: ワークフローが `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable` で失敗する場合、手順3の `GH_INSIGHTS_PAT` シークレット（手順2で作成したPATを登録するもの）がこのリポジトリに登録されていません（または別の名前で登録されています）。Settings → Secrets and variables → Actions → Repository secrets を確認してください。
 
 ## ライセンス
 
