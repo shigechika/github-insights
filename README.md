@@ -112,6 +112,8 @@ Click **Use this template → Create a new repository** at the top of this repo 
    - **Permissions → Repository → Administration**: **Read-only**
 
    > **Note**: Although "All repositories" grants access to your private repos as well, this tool targets **public repositories only** — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is scoped to **read-only** via the Administration permission, keeping the required access to the minimum necessary.
+
+   ![Example fine-grained PAT permissions: all repositories owned by you, read access to administration and metadata](docs/pat-permissions-example.png)
 3. **Add the token as a secret** named `GH_INSIGHTS_PAT` (Settings → Secrets and variables → Actions → New repository secret).
 4. **Enable GitHub Pages** at Settings → Pages:
    - Source: **Deploy from a branch**
