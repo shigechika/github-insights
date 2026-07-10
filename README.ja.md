@@ -45,6 +45,8 @@ GitHub のトラフィックデータ（閲覧数・クローン数）は **14�
 
    > **注意**: 「All repositories」を選択するとプライベートリポジトリにもアクセスできますので **パブリックリポジトリのみ** を取得対象にするため `scripts/collect.sh` で `gh api users/<owner>/repos?type=public` と public リポジトリに限定しリスト取得しています。PAT は Administration 権限ですが **読み取り専用** に限定し必要最小限の権限で Traffic 収集するよう配慮しています。
 
+   トークン作成後、権限設定がこの[設定例のスクリーンショット](docs/pat-permissions-example.png)と一致しているか確認してください。
+
 3. **シークレットトークン** を追加します（名前: `GH_INSIGHTS_PAT`）：Settings → Secrets and variables → Actions → New repository secret
 4. **GitHub Pages** を有効化します（Settings → Pages）：
    - Source: **Deploy from a branch**
@@ -56,6 +58,8 @@ GitHub のトラフィックデータ（閲覧数・クローン数）は **14�
    数分待ってから `https://<your-username>.github.io/<your-repo>/` を確認してください。
 
 以降は GitHub Actions の cron が自動実行します。1日2〜3回程度が目安です。スケジュール実行は遅延したり発火しないことがあるため、複数回設定しておくとデータを確実に収集できます。スケジュールは `.github/workflows/collect.yml` で調整できます。毎時0分（特に `00:00 UTC`）の実行は遅延したり失敗することがあるので避けてください（[参考: GitHub Docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)）。
+
+> **トラブルシューティング**: ワークフローが `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable` で失敗する場合、手順3の `GH_INSIGHTS_PAT` シークレット（手順2で作成したPATを登録するもの）がこのリポジトリに登録されていません（または別の名前で登録されています）。Settings → Secrets and variables → Actions → Repository secrets を確認してください。
 
 ## ライセンス
 

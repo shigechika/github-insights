@@ -112,6 +112,8 @@ Click **Use this template → Create a new repository** at the top of this repo 
    - **Permissions → Repository → Administration**: **Read-only**
 
    > **Note**: Although "All repositories" grants access to your private repos as well, this tool targets **public repositories only** — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is scoped to **read-only** via the Administration permission, keeping the required access to the minimum necessary.
+
+   After creating the token, check its permissions page against this [example screenshot](docs/pat-permissions-example.png).
 3. **Add the token as a secret** named `GH_INSIGHTS_PAT` (Settings → Secrets and variables → Actions → New repository secret).
 4. **Enable GitHub Pages** at Settings → Pages:
    - Source: **Deploy from a branch**
@@ -123,6 +125,8 @@ Click **Use this template → Create a new repository** at the top of this repo 
    Wait a few minutes, then visit `https://<your-username>.github.io/<your-repo>/`.
 
 After that, the cron runs automatically. Two or three times a day is a good baseline — scheduled runs can occasionally be delayed or fail to trigger entirely, so multiple runs per day ensures data is reliably captured. Adjust the schedule in `.github/workflows/collect.yml` to suit your needs. Avoid scheduling at the top of the hour (especially `00:00 UTC`) as runs can be delayed or fail to fire ([GitHub Docs](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)).
+
+> **Troubleshooting**: If the workflow fails with `gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable`, the `GH_INSIGHTS_PAT` secret from step 3 above (using the PAT created in step 2) hasn't been added to this repo — or was added under a different name. Check Settings → Secrets and variables → Actions → Repository secrets.
 
 ## License
 
