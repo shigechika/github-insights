@@ -6,7 +6,7 @@ English | [日本語](README.ja.md)
 
 **Live dashboard**: https://shigechika.github.io/github-insights/
 
-[![Dashboard screenshot](docs/screenshot.png)](https://shigechika.github.io/github-insights/)
+<a href="https://shigechika.github.io/github-insights/"><img width="800" alt="Dashboard screenshot" src="docs/screenshot.png"></a>
 
 <!-- CHARTS:START -->
 ## Insights
@@ -113,7 +113,7 @@ Click **Use this template → Create a new repository** at the top of this repo 
 
    > **Note**: Although "All repositories" grants access to your private repos as well, this tool targets **public repositories only** — `scripts/collect.sh` lists them with `gh api users/<owner>/repos?type=public`. The PAT is scoped to **read-only** via the Administration permission, keeping the required access to the minimum necessary.
 
-   ![Example fine-grained PAT permissions: all repositories owned by you, read access to administration and metadata](docs/pat-permissions-example.png)
+   <img width="800" alt="Example fine-grained PAT permissions: all repositories owned by you, read access to administration and metadata" src="docs/pat-permissions-example.png">
 3. **Add the token as a secret** named `GH_INSIGHTS_PAT` (Settings → Secrets and variables → Actions → New repository secret).
 4. **Enable GitHub Pages** at Settings → Pages:
    - Source: **Deploy from a branch**

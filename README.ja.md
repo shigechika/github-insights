@@ -6,7 +6,7 @@
 
 **ライブダッシュボード**: https://shigechika.github.io/github-insights/
 
-[![ダッシュボードのスクリーンショット](docs/screenshot.png)](https://shigechika.github.io/github-insights/)
+<a href="https://shigechika.github.io/github-insights/"><img width="800" alt="ダッシュボードのスクリーンショット" src="docs/screenshot.png"></a>
 
 > 最新チャートと統計は [英語版 README](README.md) をご覧ください（毎日自動更新）。
 
@@ -45,7 +45,7 @@ GitHub のトラフィックデータ（閲覧数・クローン数）は **14�
 
    > **注意**: 「All repositories」を選択するとプライベートリポジトリにもアクセスできますので **パブリックリポジトリのみ** を取得対象にするため `scripts/collect.sh` で `gh api users/<owner>/repos?type=public` と public リポジトリに限定しリスト取得しています。PAT は Administration 権限ですが **読み取り専用** に限定し必要最小限の権限で Traffic 収集するよう配慮しています。
 
-   ![Fine-grained PAT の権限設定例: All repositories owned by you、Read access to administration and metadata](docs/pat-permissions-example.png)
+   <img width="800" alt="Fine-grained PAT の権限設定例: All repositories owned by you、Read access to administration and metadata" src="docs/pat-permissions-example.png">
 
 3. **シークレットトークン** を追加します（名前: `GH_INSIGHTS_PAT`）：Settings → Secrets and variables → Actions → New repository secret
 4. **GitHub Pages** を有効化します（Settings → Pages）：
