@@ -81,6 +81,13 @@ will refuse to load the mismatched file) — this is a correctness bug for
 the live dashboard, not just a supply-chain nit. See `SECURITY.md`'s
 "Frontend supply chain" section for the exact regeneration command.
 
+`docs/index.html` also builds **all** DOM from the fetched JSON via
+`createElement`/`textContent` (and the error path via `replaceChildren` +
+`textContent`) — never `innerHTML`. This is a deliberate XSS-hardening
+choice (commit `8d00197`). Flag a new rendering feature that interpolates
+repo names/descriptions or `traffic.json` fields into `innerHTML` (or a
+template literal assigned to it) — it would silently regress that decision.
+
 ## 5. Shell script conventions
 
 - Every script starts `set -euo pipefail`, is `shellcheck`-clean, and
@@ -91,6 +98,12 @@ the live dashboard, not just a supply-chain nit. See `SECURITY.md`'s
 - All third-party Actions are pinned to a full commit SHA with a trailing
   `# vX.Y.Z` comment (Dependabot keeps the pin current). Flag a new
   workflow step that references an Action by tag/branch instead of a SHA.
+- The `Update screenshot` step in `collect.yml` runs `npm install --no-save
+  playwright@1.59.1` at runtime inside the `contents: write` job. That pin is
+  **hand-maintained** — there is no `package.json`, and `.github/dependabot.yml`
+  covers only `github-actions`, so nothing watches or auto-bumps it. Flag any
+  diff that loosens it (e.g. `playwright@latest`) or adds another runtime
+  `npm install`/`npx` fetch into that push-capable job.
 - The `concurrency: group: collect-traffic` block in `collect.yml` prevents
   overlapping cron/manual runs from racing on `data/traffic.json`. Flag any
   new workflow that writes to `data/traffic.json` without joining (or
