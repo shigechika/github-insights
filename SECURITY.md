@@ -47,7 +47,8 @@ The only residual touch on potentially-private repos is the rename probe `gh api
 - Uses two distinct credentials in separate steps:
   - `GH_INSIGHTS_PAT` (env: `GH_TOKEN`) — passed to `bash scripts/collect.sh` and `bash scripts/generate-charts.sh` for `gh api` calls. Read-only Administration.
   - `GITHUB_TOKEN` (implicit via `actions/checkout`) — used by the final `git push`. Scoped to `contents: write` for this run only.
-- All third-party Actions are pinned to a full commit SHA (currently `actions/checkout@de0fac2e... # v6.0.2` in both `collect.yml` and `lint.yml`). Dependabot watches for updates.
+- All third-party Actions are pinned to a full commit SHA (currently `actions/checkout@9c091bb2... # v7.0.0` in both `collect.yml` and `lint.yml`, and `googleapis/release-please-action@8b8fd2cc... # v4.4.0` in `release-please.yml`). Dependabot watches for updates.
+- The `Update screenshot` step additionally runs `npm install --no-save playwright@1.59.1` at workflow runtime, *inside* this same `contents: write` job. That version is pinned by hand: there is no `package.json`, and `.github/dependabot.yml` tracks only the `github-actions` ecosystem, so Dependabot does **not** watch it. Loosening it (e.g. `playwright@latest`) or adding another runtime `npm install`/`npx` fetch would pull unpinned third-party code into a push-capable job — a third supply-chain channel beyond the SHA-pinned Actions and the SRI-pinned CDN scripts.
 - A `concurrency: collect-traffic` group prevents overlapping cron and manual runs from racing on `data/traffic.json`.
 
 ## Frontend supply chain

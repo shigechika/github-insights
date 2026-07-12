@@ -54,7 +54,9 @@ scheduled `collect.yml` workflow succeeding in production.
   and that's expected, not a bug.
 - `scripts/screenshot.js` — Playwright captures `docs/index.html` (the live
   Pages URL, not a local file) to `docs/screenshot.png` for the README's
-  preview image. Runs after the data push, so it inherently lags one cron
+  preview image. Runs *before* the commit-and-push step, loading the live
+  Pages URL that still serves the previous run's data (GitHub Pages
+  redeploys asynchronously after each push), so it inherently lags one cron
   tick behind (documented in the script's own comment).
 - `.github/workflows/collect.yml` — orchestrates collect → generate-charts
   → screenshot → commit-and-push, on a twice-daily cron plus
