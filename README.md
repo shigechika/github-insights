@@ -11,7 +11,7 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-07-27T20:52:27Z
+> Last updated: 2026-07-28T10:13:01Z
 
 ### Views by Repository
 
@@ -20,7 +20,7 @@ xychart-beta horizontal
     title "Views by Repository (133 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "eos-mcp", "junos-mcp"]
     y-axis "Views"
-    bar [1841, 1144, 683, 575, 531, 280, 280, 274]
+    bar [1843, 1149, 683, 575, 532, 281, 280, 274]
 ```
 
 ### Daily Views
@@ -35,7 +35,7 @@ xychart-beta horizontal
     title "Daily Views (Last 30 days)"
     x-axis ["06-28", "06-29", "06-30", "07-01", "07-02", "07-03", "07-04", "07-05", "07-06", "07-07", "07-08", "07-09", "07-10", "07-11", "07-12", "07-13", "07-14", "07-15", "07-16", "07-17", "07-18", "07-19", "07-20", "07-21", "07-22", "07-23", "07-24", "07-25", "07-26", "07-27"]
     y-axis "Views"
-    bar [27, 25, 44, 8, 50, 74, 9, 121, 76, 72, 148, 24, 145, 22, 249, 30, 31, 14, 25, 74, 66, 25, 24, 18, 45, 54, 261, 43, 33, 0]
+    bar [27, 25, 44, 8, 50, 74, 9, 121, 76, 72, 148, 24, 145, 22, 249, 30, 31, 14, 25, 74, 66, 25, 24, 18, 45, 54, 261, 43, 33, 13]
 ```
 
 ### Daily Ranking
@@ -58,9 +58,9 @@ xychart-beta horizontal
 ```mermaid
 xychart-beta horizontal
     title "Clones by Repository (133 days)"
-    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "junos-ops", "homebrew-tap", "keycloak-mcp", "junos-mcp"]
+    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "junos-ops", "keycloak-mcp", "homebrew-tap", "junos-mcp"]
     y-axis "Clones"
-    bar [19929, 14986, 4945, 4429, 3923, 3490, 3348, 2765]
+    bar [20359, 15397, 4952, 4435, 4051, 3601, 3534, 2907]
 ```
 
 ### Repositories
@@ -72,8 +72,8 @@ xychart-beta horizontal
 | [gws-mcp](https://github.com/shigechika/gws-mcp) | MCP fork of Google Workspace CLI — exposes Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more to AI assistants. Dynamically built from Google Discovery Service. Includes AI agent skills. |
 | [github-insights](https://github.com/shigechika/github-insights) | GitHub Traffic insights dashboard — aggregates views/clones across a user's public repositories |
 | [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
-| [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
+| [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
 | [junos-mcp](https://github.com/shigechika/junos-mcp) | MCP server for Juniper/JUNOS — show, upgrade with rollback, config push (commit confirmed) with safe dry-run defaults, RSI/SCF collection |
 | [eos-mcp](https://github.com/shigechika/eos-mcp) | MCP server for Arista EOS device operations via eAPI |
 <!-- CHARTS:END -->
