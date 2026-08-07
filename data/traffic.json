@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-07T08:36:54Z",
+  "updated_at": "2026-08-07T20:18:13Z",
   "views": {
     "DHCPStatus": {
       "2026-03-28T00:00:00Z": {
@@ -5355,6 +5355,10 @@
       "2026-08-05T00:00:00Z": {
         "count": 0,
         "uniques": 0
+      },
+      "2026-08-06T00:00:00Z": {
+        "count": 0,
+        "uniques": 0
       }
     },
     "aruba-central-mcp": {
@@ -5879,6 +5883,10 @@
         "uniques": 0
       },
       "2026-08-05T00:00:00Z": {
+        "count": 0,
+        "uniques": 0
+      },
+      "2026-08-06T00:00:00Z": {
         "count": 0,
         "uniques": 0
       }
@@ -33177,6 +33185,10 @@
       "2026-08-05T00:00:00Z": {
         "count": 0,
         "uniques": 0
+      },
+      "2026-08-06T00:00:00Z": {
+        "count": 0,
+        "uniques": 0
       }
     },
     "aruba-central-mcp": {
@@ -33703,6 +33715,10 @@
       "2026-08-05T00:00:00Z": {
         "count": 6,
         "uniques": 6
+      },
+      "2026-08-06T00:00:00Z": {
+        "count": 103,
+        "uniques": 23
       }
     },
     "azure-spotvm-starts-when-stopped": {
