@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-08-15T19:51:25Z
+> Last updated: 2026-08-16T07:56:26Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (151 days)"
+    title "Views by Repository (152 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "eos-mcp"]
     y-axis "Views"
-    bar [2005, 1520, 730, 590, 538, 311, 287, 281]
+    bar [2009, 1524, 732, 594, 540, 331, 287, 281]
 ```
 
 ### Daily Views
@@ -33,9 +33,9 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["07-16", "07-17", "07-18", "07-19", "07-20", "07-21", "07-22", "07-23", "07-24", "07-25", "07-26", "07-27", "07-28", "07-29", "07-30", "07-31", "08-01", "08-02", "08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12", "08-13", "08-14"]
+    x-axis ["07-17", "07-18", "07-19", "07-20", "07-21", "07-22", "07-23", "07-24", "07-25", "07-26", "07-27", "07-28", "07-29", "07-30", "07-31", "08-01", "08-02", "08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12", "08-13", "08-14", "08-15"]
     y-axis "Views"
-    bar [25, 74, 66, 25, 24, 18, 45, 54, 261, 43, 33, 13, 12, 57, 19, 78, 55, 57, 17, 10, 10, 125, 69, 119, 102, 123, 189, 21, 31, 71]
+    bar [74, 66, 25, 24, 18, 45, 54, 261, 43, 33, 13, 12, 57, 19, 78, 55, 57, 17, 10, 10, 125, 69, 119, 102, 123, 189, 21, 31, 71, 38]
 ```
 
 ### Daily Ranking
@@ -57,10 +57,10 @@ xychart-beta horizontal
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (151 days)"
-    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "junos-ops", "keycloak-mcp", "homebrew-tap", "junos-mcp"]
+    title "Clones by Repository (152 days)"
+    x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "keycloak-mcp", "junos-ops", "homebrew-tap", "junos-mcp"]
     y-axis "Clones"
-    bar [22588, 19250, 5083, 4918, 4498, 4388, 4009, 3487]
+    bar [22697, 19254, 5084, 4929, 4562, 4501, 4011, 3552]
 ```
 
 ### Repositories
