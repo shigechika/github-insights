@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-08-29T21:56:11Z
+> Last updated: 2026-08-30T13:16:08Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (166 days)"
-    x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "eos-mcp"]
+    title "Views by Repository (167 days)"
+    x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [2046, 1718, 752, 622, 542, 350, 290, 286]
+    bar [2060, 1729, 756, 622, 542, 351, 291, 286]
 ```
 
 ### Daily Views
@@ -33,9 +33,9 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["07-31", "08-01", "08-02", "08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12", "08-13", "08-14", "08-15", "08-16", "08-17", "08-18", "08-19", "08-20", "08-21", "08-22", "08-23", "08-24", "08-25", "08-26", "08-27", "08-28", "08-29"]
+    x-axis ["08-01", "08-02", "08-03", "08-04", "08-05", "08-06", "08-07", "08-08", "08-09", "08-10", "08-11", "08-12", "08-13", "08-14", "08-15", "08-16", "08-17", "08-18", "08-19", "08-20", "08-21", "08-22", "08-23", "08-24", "08-25", "08-26", "08-27", "08-28", "08-29", "08-30"]
     y-axis "Views"
-    bar [78, 55, 57, 17, 10, 10, 125, 69, 119, 102, 123, 189, 21, 31, 71, 38, 9, 54, 23, 32, 53, 17, 89, 72, 40, 9, 17, 20, 0, 0]
+    bar [55, 57, 17, 10, 10, 125, 69, 119, 102, 123, 189, 21, 31, 71, 38, 9, 54, 23, 32, 53, 17, 89, 72, 40, 9, 17, 20, 24, 10, 0]
 ```
 
 ### Daily Ranking
@@ -57,10 +57,10 @@ xychart-beta horizontal
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (166 days)"
+    title "Clones by Repository (167 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "keycloak-mcp", "junos-ops", "homebrew-tap", "junos-mcp"]
     y-axis "Clones"
-    bar [23083, 20492, 5788, 5058, 4845, 4564, 4160, 3675]
+    bar [23102, 20514, 5806, 5102, 4852, 4565, 4166, 3685]
 ```
 
 ### Repositories
@@ -75,7 +75,7 @@ xychart-beta horizontal
 | [keycloak-mcp](https://github.com/shigechika/keycloak-mcp) | MCP server for the Keycloak Admin REST API — a strong ally for auth troubleshooting: inspect users, sessions, clients, and realm config through AI assistants. |
 | [homebrew-tap](https://github.com/shigechika/homebrew-tap) | Homebrew tap for junos-ops, mcp-stdio, speedtest-z and gws-mcp. |
 | [junos-mcp](https://github.com/shigechika/junos-mcp) | MCP server for Juniper/JUNOS — show, upgrade with rollback, config push (commit confirmed) with safe dry-run defaults, RSI/SCF collection |
-| [eos-mcp](https://github.com/shigechika/eos-mcp) | MCP server for Arista EOS device operations via eAPI |
+| [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp) | MCP server for Aruba Central: expose AP, switch, and client status to AI assistants |
 <!-- CHARTS:END -->
 
 ## Overview
