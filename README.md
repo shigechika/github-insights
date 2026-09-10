@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-09-09T21:56:29Z
+> Last updated: 2026-09-10T12:22:29Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (177 days)"
+    title "Views by Repository (178 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [2093, 1767, 799, 643, 543, 352, 297, 289]
+    bar [2094, 1771, 807, 643, 544, 352, 297, 289]
 ```
 
 ### Daily Views
@@ -33,9 +33,9 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["08-11", "08-12", "08-13", "08-14", "08-15", "08-16", "08-17", "08-18", "08-19", "08-20", "08-21", "08-22", "08-23", "08-24", "08-25", "08-26", "08-27", "08-28", "08-29", "08-30", "08-31", "09-01", "09-02", "09-03", "09-04", "09-05", "09-06", "09-07", "09-08", "09-09"]
+    x-axis ["08-12", "08-13", "08-14", "08-15", "08-16", "08-17", "08-18", "08-19", "08-20", "08-21", "08-22", "08-23", "08-24", "08-25", "08-26", "08-27", "08-28", "08-29", "08-30", "08-31", "09-01", "09-02", "09-03", "09-04", "09-05", "09-06", "09-07", "09-08", "09-09", "09-10"]
     y-axis "Views"
-    bar [189, 21, 31, 71, 38, 9, 54, 23, 32, 53, 17, 89, 72, 40, 9, 17, 20, 24, 10, 15, 5, 30, 48, 12, 17, 7, 44, 23, 35, 0]
+    bar [21, 31, 71, 38, 9, 54, 23, 32, 53, 17, 89, 72, 40, 9, 17, 20, 24, 10, 15, 5, 30, 48, 12, 17, 7, 44, 23, 35, 33, 0]
 ```
 
 ### Daily Ranking
@@ -57,10 +57,10 @@ xychart-beta horizontal
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (177 days)"
+    title "Clones by Repository (178 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "gws-mcp", "github-insights", "keycloak-mcp", "junos-ops", "homebrew-tap", "junos-mcp"]
     y-axis "Clones"
-    bar [24308, 21061, 5868, 5247, 5038, 4801, 4185, 3889]
+    bar [24316, 21077, 5872, 5259, 5062, 4806, 4191, 3896]
 ```
 
 ### Repositories
