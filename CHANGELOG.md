@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/shigechika/github-insights/compare/v0.2.0...v0.2.1) (2026-08-11)
+
+
+### Bug Fixes
+
+* add explicit workflow permissions ([#36](https://github.com/shigechika/github-insights/issues/36)) ([bfc3080](https://github.com/shigechika/github-insights/commit/bfc308097dd6fef0af5e20d06a63b70b7f730a85))
+
 ## [0.2.0](https://github.com/shigechika/github-insights/compare/v0.1.0...v0.2.0) (2026-07-08)
 
 
