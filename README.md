@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-11-06T00:31:58Z
+> Last updated: 2026-11-06T15:21:27Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
     title "Views by Repository (235 days)"
-    x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "eos-mcp"]
+    x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "junos-mcp", "keycloak-mcp", "eos-mcp"]
     y-axis "Views"
-    bar [2441, 2429, 1002, 730, 579, 448, 433, 368]
+    bar [2713, 2572, 1055, 758, 620, 515, 510, 394]
 ```
 
 ### Daily Views
@@ -35,7 +35,7 @@ xychart-beta horizontal
     title "Daily Views (Last 30 days)"
     x-axis ["10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06"]
     y-axis "Views"
-    bar [5, 16, 9, 4, 13, 31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 0, 0]
+    bar [5, 16, 9, 4, 13, 31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 1038, 0]
 ```
 
 ### Daily Ranking
@@ -48,9 +48,9 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Ranking (Top 10 days by views)"
-    x-axis ["2026-10-29", "2026-05-08", "2026-10-28", "2026-07-24", "2026-07-12", "2026-05-07", "2026-08-11", "2026-04-04", "2026-05-03", "2026-10-30"]
+    x-axis ["2026-11-05", "2026-10-29", "2026-05-08", "2026-10-28", "2026-07-24", "2026-07-12", "2026-05-07", "2026-08-11", "2026-04-04", "2026-05-03"]
     y-axis "Views"
-    bar [777, 355, 288, 261, 249, 191, 189, 170, 168, 165]
+    bar [1038, 777, 355, 288, 261, 249, 191, 189, 170, 168]
 ```
 
 ### Clones by Repository
@@ -60,7 +60,7 @@ xychart-beta horizontal
     title "Clones by Repository (235 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "keycloak-mcp", "github-insights", "gws-mcp", "junos-ops", "junos-mcp", "gwsadm-mcp"]
     y-axis "Clones"
-    bar [26459, 24122, 7888, 6509, 6466, 5668, 5171, 4727]
+    bar [26471, 24150, 7905, 6529, 6472, 5669, 5178, 4731]
 ```
 
 ### Repositories
