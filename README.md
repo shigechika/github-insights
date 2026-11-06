@@ -11,13 +11,13 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-11-05T15:46:59Z
+> Last updated: 2026-11-06T00:31:58Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
-    title "Views by Repository (234 days)"
+    title "Views by Repository (235 days)"
     x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "keycloak-mcp", "junos-mcp", "eos-mcp"]
     y-axis "Views"
     bar [2441, 2429, 1002, 730, 579, 448, 433, 368]
@@ -33,9 +33,9 @@ config:
 ---
 xychart-beta horizontal
     title "Daily Views (Last 30 days)"
-    x-axis ["10-07", "10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05"]
+    x-axis ["10-08", "10-09", "10-10", "10-11", "10-12", "10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06"]
     y-axis "Views"
-    bar [71, 5, 16, 9, 4, 13, 31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 0]
+    bar [5, 16, 9, 4, 13, 31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 0, 0]
 ```
 
 ### Daily Ranking
@@ -57,7 +57,7 @@ xychart-beta horizontal
 
 ```mermaid
 xychart-beta horizontal
-    title "Clones by Repository (234 days)"
+    title "Clones by Repository (235 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "keycloak-mcp", "github-insights", "gws-mcp", "junos-ops", "junos-mcp", "gwsadm-mcp"]
     y-axis "Clones"
     bar [26459, 24122, 7888, 6509, 6466, 5668, 5171, 4727]
