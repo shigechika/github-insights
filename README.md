@@ -11,7 +11,7 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-11-11T00:13:27Z
+> Last updated: 2026-11-11T15:35:42Z
 
 ### Views by Repository
 
@@ -20,7 +20,7 @@ xychart-beta horizontal
     title "Views by Repository (240 days)"
     x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "junos-mcp", "keycloak-mcp", "eos-mcp"]
     y-axis "Views"
-    bar [2728, 2584, 1062, 761, 624, 518, 510, 396]
+    bar [2730, 2585, 1063, 762, 624, 518, 510, 397]
 ```
 
 ### Daily Views
@@ -35,7 +35,7 @@ xychart-beta horizontal
     title "Daily Views (Last 30 days)"
     x-axis ["10-13", "10-14", "10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06", "11-07", "11-08", "11-09", "11-10", "11-11"]
     y-axis "Views"
-    bar [31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 1038, 10, 17, 22, 18, 0, 0]
+    bar [31, 24, 26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 1038, 10, 17, 22, 18, 17, 0]
 ```
 
 ### Daily Ranking
@@ -60,7 +60,7 @@ xychart-beta horizontal
     title "Clones by Repository (240 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "keycloak-mcp", "github-insights", "gws-mcp", "junos-ops", "junos-mcp", "gwsadm-mcp"]
     y-axis "Clones"
-    bar [26507, 24213, 7926, 6581, 6523, 5692, 5200, 4753]
+    bar [26524, 24238, 7933, 6600, 6531, 5694, 5205, 4759]
 ```
 
 ### Repositories
