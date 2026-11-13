@@ -11,16 +11,16 @@ English | [日本語](README.ja.md)
 <!-- CHARTS:START -->
 ## Insights
 
-> Last updated: 2026-11-13T00:40:38Z
+> Last updated: 2026-11-13T15:40:38Z
 
 ### Views by Repository
 
 ```mermaid
 xychart-beta horizontal
     title "Views by Repository (242 days)"
-    x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "junos-mcp", "keycloak-mcp", "eos-mcp"]
+    x-axis ["mcp-stdio", "jquants-mcp", "junos-ops", "gws-mcp", "github-insights", "junos-mcp", "keycloak-mcp", "aruba-central-mcp"]
     y-axis "Views"
-    bar [2734, 2586, 1070, 764, 624, 518, 518, 399]
+    bar [2736, 2587, 1070, 765, 624, 518, 518, 403]
 ```
 
 ### Daily Views
@@ -35,7 +35,7 @@ xychart-beta horizontal
     title "Daily Views (Last 30 days)"
     x-axis ["10-15", "10-16", "10-17", "10-18", "10-19", "10-20", "10-21", "10-22", "10-23", "10-24", "10-25", "10-26", "10-27", "10-28", "10-29", "10-30", "10-31", "11-01", "11-02", "11-03", "11-04", "11-05", "11-06", "11-07", "11-08", "11-09", "11-10", "11-11", "11-12", "11-13"]
     y-axis "Views"
-    bar [26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 1038, 10, 17, 22, 18, 17, 39, 0, 0]
+    bar [26, 15, 7, 13, 7, 4, 9, 14, 10, 36, 12, 57, 17, 288, 777, 165, 21, 33, 26, 21, 19, 1038, 10, 17, 22, 18, 17, 39, 13, 0]
 ```
 
 ### Daily Ranking
@@ -60,7 +60,7 @@ xychart-beta horizontal
     title "Clones by Repository (242 days)"
     x-axis ["jquants-mcp", "mcp-stdio", "keycloak-mcp", "github-insights", "gws-mcp", "junos-ops", "junos-mcp", "gwsadm-mcp"]
     y-axis "Clones"
-    bar [26539, 24253, 7957, 6620, 6534, 5698, 5212, 4872]
+    bar [26555, 24260, 7970, 6642, 6542, 5703, 5222, 4896]
 ```
 
 ### Repositories
@@ -75,7 +75,7 @@ xychart-beta horizontal
 | [junos-ops](https://github.com/shigechika/junos-ops) | Python CLI to automate Juniper/JUNOS operations over NETCONF: model-aware upgrade, rollback, reboot, config push, and RSI/SCF collection |
 | [junos-mcp](https://github.com/shigechika/junos-mcp) | MCP server for Juniper/JUNOS — show, upgrade with rollback, config push (commit confirmed) with safe dry-run defaults, RSI/SCF collection |
 | [gwsadm-mcp](https://github.com/shigechika/gwsadm-mcp) | MCP server for Google Workspace security auditing — login audit, external sharing, daily brief |
-| [eos-mcp](https://github.com/shigechika/eos-mcp) | MCP server for Arista EOS device operations via eAPI |
+| [aruba-central-mcp](https://github.com/shigechika/aruba-central-mcp) | MCP server for Aruba Central: expose AP, switch, and client status to AI assistants |
 <!-- CHARTS:END -->
 
 ## Overview
